@@ -8,8 +8,7 @@ def menu_principal():
         '4': ('Ejercicio 4', Ejercicio4),
         's': ('Salir', salir)
     }
-
-    generar_menu(opciones, 's')  #Generamos el menú hasta que se introduzca la s
+    generate_menu(opciones, 's')  #Generamos el menú hasta que se introduzca la s
 
 
 menu_principal() #Arranque programa

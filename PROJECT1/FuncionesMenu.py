@@ -1,3 +1,4 @@
+from tkinter import N
 from Ejercicio1 import *
 from Ejercicio2 import *
 from Ejercicio3 import *
@@ -25,27 +26,27 @@ def salir():
     
 #Funciones del menú
 
-def generar_menu(opciones, opcion_salida):
-    opcion = None
-    while opcion != opcion_salida:
-        mostrar_menu(opciones)
-        opcion = leer_opcion(opciones)
-        ejecutar_opcion(opcion, opciones)
+def generate_menu(options, exit_opts):
+    option = None
+    while option != exit_opts:
+        show_menu(options)
+        option = read_option(options)
+        execute_options(option,options)
         print()
-
-def mostrar_menu(opciones):
+    
+def show_menu(opciones):
     print('Selecciona el ejercicio a ejecutar:')
     for clave in sorted(opciones):
         print(f' {clave}) {opciones[clave][0]}')
 
 
-def leer_opcion(opciones):
+def read_option(opciones):
     while (a := input('Opción: ')) not in opciones:
         print('Opción incorrecta, vuelva a intentarlo.')
     return a
 
 
-def ejecutar_opcion(opcion, opciones):
+def execute_options(opcion, opciones):
     opciones[opcion][1]()
 
 #Funciones Submenús Ejercicio 1
@@ -66,7 +67,7 @@ def submenuEjercicio1():
         'b': ('Volver al menú principal', salir)
     }
 
-    generar_menu(opciones, 'b')
+    generate_menu(opciones, 'b')
 
 def funcion1square():
     print('Has elegido el Ejercicio 1 Square')
@@ -112,7 +113,7 @@ def submenuEjercicio2():
         'b': ('Volver al menú principal', salir)
     }
 
-    generar_menu(opciones, 'b')
+    generate_menu(opciones, 'b')
 
 def funcion2listWeights():
     print('Has elegido el Ejercicio 2 List Weights')
