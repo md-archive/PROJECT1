@@ -60,6 +60,7 @@ def submenuEjercicio1():
         '09': ('Opción Stars', funcion1stars),
         '10': ('Opción Agraph Plotter', funcion1AgraphPlotter),
         '11': ('Opción Clock', funcion1Bclock),
+        '12': ('Opción estrella rellenada', funcion1starfilled),
         'b': ('Volver al menú principal', salir)
     }
 
