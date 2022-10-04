@@ -68,6 +68,8 @@ def funcion1stars(drw_forw,draw_forw2,drw_forw3,num_lines):
         t_inv.forward(drw_forw3)
         t_inv.back(drw_forw3)
         t_inv.right(degrees/num_lines)
+# randint = Random star position
+# number shows where the turtle will be displayed
 #
 for _ in range(star_quantity):
     left_degrees = 90
