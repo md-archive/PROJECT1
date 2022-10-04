@@ -1,0 +1,18 @@
+opciones = {
+    '1': ('Ejercicio 1', submenuEjercicio1),
+     '2': ('Ejercicio 2', submenuEjercicio2),
+      '3': ('Ejercicio 3', submenuEjercicio3),
+       '4': ('Ejercicio 4', submenuEjercicio4),
+        's': ('Salir', salir),
+}
+opcion = none 
+while opcion != opcion_salida:
+    mostrar_menu(opciones)
+    opcion = leer_opcion(opciones)
+    ejecutar_opcion(opcion,opciones)
+    print()
+
+menu_principal()
+
+uso de diccionarios para control de errores del usuario
+o de sort
