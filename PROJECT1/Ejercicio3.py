@@ -53,14 +53,6 @@ def vacio_o_no(random):
 #    i=i+1 
 
 
-
-
-
-
-
-
-
-
 #Jugada_aleatoria(player)
 
 #while final != true:
