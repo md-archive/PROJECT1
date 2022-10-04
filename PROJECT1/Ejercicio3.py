@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/python3
 #coding: utf-8
 import random
@@ -14,7 +13,6 @@ d1 = [0, 4, 8]
 d2 = [2, 4, 6]
 lines = [h1, h2, h3, v1, v2, v3, d1, d2]
 NumeroRandom = random.randint(0, 8)
-=======
 #
 import random
 # Question 2
@@ -36,23 +34,18 @@ d1 = [0, 4, 8]  # diagonal
 d2 = [2, 4, 6]
 lines = [h1, h2, h3, v1, v2, v3, d1, d2]
 
->>>>>>> 4138df7cee7ed29712e864b921bc0128e93b2de2
 
 def print_board(b):
     for n, x in enumerate(b):
         print(x, end='')
-<<<<<<< HEAD
         if n % 3 == 0: print('')
-=======
         if n % 3 == 0:
             print('')
 
->>>>>>> 4138df7cee7ed29712e864b921bc0128e93b2de2
 
 def full(b):
     return '_' not in b
 
-<<<<<<< HEAD
 def wins(p, b):
     win = [p, p, p]
     for l in lines:
@@ -99,7 +92,6 @@ def vacio_o_no(random):
     #if (won ==true)
         #final = true
 
-=======
 
 def wins(p, b):
     win = [p, p, p]
@@ -121,4 +113,3 @@ def human_move(p):
     if p.isdigit():
         return True
     return False
->>>>>>> 4138df7cee7ed29712e864b921bc0128e93b2de2
