@@ -6,10 +6,6 @@ from Ejercicio4 import *
 
 #Opciones Menú
 
-def Ejercicio1():
-    print('Has elegido la opción 1')
-
-
 def Ejercicio2():
     print('Has elegido la opción 2')
 
