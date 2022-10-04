@@ -5,7 +5,8 @@ from Ejercicio3 import *
 from Ejercicio4 import *
 
 #Opciones Menú
-
+def Ejercicio1():
+    print("Hi")
 def Ejercicio2():
     print('Has elegido la opción 2')
 
@@ -30,25 +31,25 @@ def generate_menu(options, exit_opts):
         execute_options(option,options)
         print()
     
-def show_menu(opciones):
-    print('Selecciona el ejercicio a ejecutar:')
-    for clave in sorted(opciones):
-        print(f' {clave}) {opciones[clave][0]}')
+def show_menu(options):
+    print('Choose an exercise to run:')
+    for key in sorted(options):
+        print(f' {key}) {options[key][0]}')
 
 
-def read_option(opciones):
-    while (a := input('Opción: ')) not in opciones:
-        print('Opción incorrecta, vuelva a intentarlo.')
+def read_option(options):
+    while (a := input('Option: ').lower()) not in options:
+        print('Wrong choice, try again!')        
     return a
 
 
-def execute_options(opcion, opciones):
-    opciones[opcion][1]()
+def execute_options(option, options):
+    options[option][1]()
 
 #Funciones Submenús Ejercicio 1
 
 def submenuEjercicio1():
-    opciones = {
+    options = {
         '01': ('Opción Square', funcion1square),
         '02': ('Opción Filled Square', funcion1filledSquare),
         '03': ('Opción Multi Square', funcion1multiSquare),
@@ -63,7 +64,7 @@ def submenuEjercicio1():
         'b': ('Volver al menú principal', salir)
     }
 
-    generate_menu(opciones, 'b')
+    generate_menu(options, 'b')
 
 def funcion1square():
     print('Has elegido el Ejercicio 1 Square')
@@ -101,7 +102,7 @@ def funcion1Bclock():
 #Funciones Submenús Ejercicio 2
 
 def submenuEjercicio2():
-    opciones = {
+    options = {
         '01': ('List Weights', funcion2listWeights),
         '02': ('List Dates', funcion2listDates),
         '03': ('Lookup Weight', funcion2lookupWeight),
@@ -109,7 +110,7 @@ def submenuEjercicio2():
         'b': ('Volver al menú principal', salir)
     }
 
-    generate_menu(opciones, 'b')
+    generate_menu(options, 'b')
 
 def funcion2listWeights():
     print('Has elegido el Ejercicio 2 List Weights')
