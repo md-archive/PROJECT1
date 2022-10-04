@@ -23,3 +23,8 @@ with open('csvcals.py','w',encoding='UTF8', newline='') as f:
     writer.writerow(carrots_cooked)
     writer.writerow(carrots_raw)
     writer.writerow(peas)
+
+with open('csvcals.py','r') as f:
+    csvreader = csv.reader(f)
+    for row in csvreader:
+        print(row)
