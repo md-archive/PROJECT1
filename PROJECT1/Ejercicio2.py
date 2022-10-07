@@ -1,4 +1,12 @@
 import datetime
+import os 
+
+def list_weights(name):
+    for k, vs in table_of_file(os.path.join(name, 'weight.txt')).items():
+        print(f'{k} {vs[0]}')
+
+def list_dates(name):
+    for filename in 
 
 def date_today():
     d = datetime.datetime.now()
