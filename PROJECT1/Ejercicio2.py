@@ -6,8 +6,7 @@ def list_weights(name):
         print(f'{k} {vs[0]}')
 
 def list_dates(name):
-    for filename in 
-
+    name
 def date_today():
     d = datetime.datetime.now()
     return f'{d.day:02}-{d.month:02}-{d.year}'
@@ -74,3 +73,16 @@ def total_date(name,date):
         calories_per_gram = reference_calories / reference_weight
         total += int(vs[0]) * calories_per_gram
     print(f'Total calories for {date}: {int(total)}')
+    
+def funcion2listWeights():
+    print('Has elegido el Ejercicio 2 List Weights')
+    
+def funcion2listDates():
+    print('Has elegido el Ejercicio 2 List Dates')
+    
+def funcion2lookupWeight():
+    print('Has elegido el Ejercicio 2 Lookup Weight')
+    
+def funcion2final():
+    print('Has elegido el Ejercicio 2 Final')
+    
