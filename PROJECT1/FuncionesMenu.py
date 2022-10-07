@@ -1,13 +1,15 @@
 from Ejercicio1 import *
-from Ejercicio2 import *
+#from Ejercicio2 import *
 from Ejercicio3 import *
 from Ejercicio4 import *
 
 #Opciones Menú
 
+def Ejercicio2():
+    print('Has elegido la opción 2')
+
 def Ejercicio3():
     print('Has elegido la opción 3')
-
 
 def Ejercicio4():
     print('Has elegido la opción 4')
@@ -70,6 +72,21 @@ def submenuEjercicio2():
         '02': ('List Dates', funcion2listDates),
         '03': ('Lookup Weight', funcion2lookupWeight),
         '04': ('Ejercicio 2 final', funcion2final),
+        'b': ('Volver al menú principal', salir)
+    }
+
+    generar_menu(opciones, 'b')
+
+def submenuEjercicio3():
+    opciones = {
+        '01': ('Print Board', funcion3PrintBoard),
+        '02': ('Random Move', funcion3RandomMove),
+        '03': ('Human Move', funcion3HumanMove),
+        '04': ('Computer Move', funcion3ComputerMove),
+        
+        '05': ('Human Move', funcion3HumanMove),
+        '06': ('Computer Move', funcion3ComputerMove),
+        '07': ('Ejercicio 2 final', funcion2final),
         'b': ('Volver al menú principal', salir)
     }
 
