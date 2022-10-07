@@ -26,27 +26,27 @@ def func_square():
                 t_inv.forward(distance)
 func_square()
 #
-def funcion1square():
+def func_1_square():
         for _ in range(sides):
                 t_inv.forward(distance)
                 t_inv.right(degrees)
 #
 for _ in range(flower):
-        funcion1square(distance)
+        func_1_square(distance)
         t_inv.right(circle_degrees/flower)
 
-def funcion1star(size, lines):
+def func_1_star(size, lines):
         for _ in range(lines):
                 t_inv.forward(size)
                 t_inv.back(size)
                 t_inv.right(circle_degrees/lines)
-        funcion1star(size, lines)
+        func_1_star(size, lines)
 
-def funcion1polygon(polygon_size):
+def func_1_poly(polygon_size):
    for _ in range(polygon_sides):
       t_inv.forward(polygon_size) 
       t_inv.right(degrees)
-funcion1polygon(100)
+func_1_poly(100)
 
 def funcion1circle():
      total = 0

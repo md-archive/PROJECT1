@@ -1,12 +1,11 @@
-from tkinter import N
 from Ejercicio1 import *
 from Ejercicio2 import *
 from Ejercicio3 import *
 from Ejercicio4 import *
 
 #Opciones Menú
-def Ejercicio1():
-    print("Hi")
+
+
 def Ejercicio2():
     print('Has elegido la opción 2')
 
@@ -23,33 +22,33 @@ def salir():
     
 #Funciones del menú
 
-def generate_menu(options, exit_opts):
-    option = None
-    while option != exit_opts:
-        show_menu(options)
-        option = read_option(options)
-        execute_options(option,options)
+def generar_menu(opciones, opcion_salida):
+    opcion = None
+    while opcion != opcion_salida:
+        mostrar_menu(opciones)
+        opcion = leer_opcion(opciones)
+        ejecutar_opcion(opcion, opciones)
         print()
-    
-def show_menu(options):
-    print('Choose an exercise to run:')
-    for key in sorted(options):
-        print(f' {key}) {options[key][0]}')
+
+def mostrar_menu(opciones):
+    print('Selecciona el ejercicio a ejecutar:')
+    for clave in sorted(opciones):
+        print(f' {clave}) {opciones[clave][0]}')
 
 
-def read_option(options):
-    while (a := input('Option: ').lower()) not in options:
-        print('Wrong choice, try again!')        
+def leer_opcion(opciones):
+    while (a := input('Opción: ')) not in opciones:
+        print('Opción incorrecta, vuelva a intentarlo.')
     return a
 
 
-def execute_options(option, options):
-    options[option][1]()
+def ejecutar_opcion(opcion, opciones):
+    opciones[opcion][1]()
 
 #Funciones Submenús Ejercicio 1
 
 def submenuEjercicio1():
-    options = {
+    opciones = {
         '01': ('Opción Square', funcion1square),
         '02': ('Opción Filled Square', funcion1filledSquare),
         '03': ('Opción Multi Square', funcion1multiSquare),
@@ -61,17 +60,48 @@ def submenuEjercicio1():
         '09': ('Opción Stars', funcion1stars),
         '10': ('Opción Agraph Plotter', funcion1AgraphPlotter),
         '11': ('Opción Clock', funcion1Bclock),
-        '12': ('Opción estrella rellenada', funcion1starfilled),
         'b': ('Volver al menú principal', salir)
     }
 
-    generate_menu(options, 'b')
+    generar_menu(opciones, 'b')
 
+def funcion1square():
+    print('Has elegido el Ejercicio 1 Square')
+    
+def funcion1filledSquare():
+    print('Has elegido el Ejercicio 1 Filled Square')
+    
+def funcion1multiSquare():
+    print('Has elegido el Ejercicio 1 MultiSquare')
+
+def funcion1polygon():
+    print('Has elegido el Ejercicio 1 Polygon')
+    
+def funcion1circle():
+    print('Has elegido el Ejercicio 1 Circle')
+    
+def funcion1filledCircle():
+    print('Has elegido el Ejercicio 1 Filled Circle')
+    
+def funcion1squareCircles():
+    print('Has elegido el Ejercicio 1 Square Circles')
+    
+def funcion1star():
+    print('Has elegido el Ejercicio 1 Star')
+    
+def funcion1stars():
+    print('Has elegido el Ejercicio 1 Stars')
+    
+def funcion1AgraphPlotter():
+    print('Has elegido el Ejercicio 1A Graph Plotter')
+    
+def funcion1Bclock():
+    print('Has elegido el Ejercicio 1A Clock')
 
 #Funciones Submenús Ejercicio 2
 
 def submenuEjercicio2():
-    options = {
+    opciones = {
         '01': ('List Weights', funcion2listWeights),
         '02': ('List Dates', funcion2listDates),
         '03': ('Lookup Weight', funcion2lookupWeight),
@@ -79,7 +109,7 @@ def submenuEjercicio2():
         'b': ('Volver al menú principal', salir)
     }
 
-    generate_menu(options, 'b')
+    generar_menu(opciones, 'b')
 
 def funcion2listWeights():
     print('Has elegido el Ejercicio 2 List Weights')

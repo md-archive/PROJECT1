@@ -1,14 +1,15 @@
 from FuncionesMenu import *
 
-def initial_menu():
-    options= {
+def menu_principal():
+    opciones = {
         '1': ('Ejercicio 1', submenuEjercicio1),
         '2': ('Ejercicio 2', submenuEjercicio2),
         '3': ('Ejercicio 3', Ejercicio3),
         '4': ('Ejercicio 4', Ejercicio4),
         's': ('Salir', salir)
     }
-    generate_menu(options, 's')  #Generamos el menú hasta que se introduzca la s
+
+    generar_menu(opciones, 's')  #Generamos el menú hasta que se introduzca la s
 
 
-initial_menu() #Arranque programa
+menu_principal() #Arranque programa
