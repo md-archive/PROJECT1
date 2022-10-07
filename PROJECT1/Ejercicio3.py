@@ -9,6 +9,7 @@ missatge = "Las reglas para empezar a jugar son simples, cada jugador coloca \
         horizontal"
 
 i = 0
+emptyboard = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
 b = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
 h1 = [0, 1, 2]
 h2 = [3, 4, 5]
@@ -20,7 +21,8 @@ d1 = [0, 4, 8]
 d2 = [2, 4, 6]
 lines = [h1, h2, h3, v1, v2, v3, d1, d2]
 NumeroRandom = random.randint(0, 8)
-
+intersecting_lines = [(h1, v1, 0), (h1, v2, 1), (h1, v3, 2), (h2, v1, 3), (h2, v2, 4), (h2, v3, 5), (h3, v1, 6), (h3, v2, 7), (h3, v3, 8), (d1, h1, 0), (d1, h2, 4), (d1, h3, 8), (d1, v1, 0), (d1, v2, 4), (d1, v3, 8), (d2, h1, 2), (d2, h2, 4), (d2, h3, 6), (d2, v1, 2), (d2, v2, 4), (d2, v3, 6), (d1, d2, 4)]
+pl ='0'
 
 def print_board(b):
     for n, x in enumerate(b):
@@ -45,27 +47,144 @@ def wins(p, b):
 
 
 # Question 3
-def random_move(NumeroRandom, b):
-    NumeroRandom = random.randint(0, 8)
-    for x in b:
-        vacio_o_no(NumeroRandom)
+def random_play(pl, b):
+    p = random.randint(0, 8)
+    while b[p] != '_':
+        p = (p + 1) % 9
+    b[p] = pl
 
-# def random_move(b):
-#    r = random.randint(0, 8)
-#    if b == '_':
-
-
-def vacio_o_no(random):
-    x = ""  # temporal
-    if b[x] == '_':
-        return random
-
+def random_game():
+    b = emptyboard.copy()
+    pl ='0'
+    while not (full(b) or wins('X', b) or wins('0', b)):
+        print_board(b)
+        print('')
+        random_play(pl, b)
+        if pl == '0': pl ='X'
+        else: pl = '0'
+    print_board(b)
+    print('Game over. Result:')
+    if wins('0', b):
+        print('0 wins!')
+    elif wins('X', b):
+        print('X wins!')
+    else:
+        print('Draw!')
+   
 
 # Question 4
-def human_move(p):
-    if p.isdigit():
-        return True
+
+# Question 5
+def try_to_take(b, ps):
+    for p in ps:
+        if b[p] == '_':
+            b[p] = 'X'
+            return True
     return False
+
+def tactic_play_centre(b):
+    return try_to_take(b, [4])
+
+def tactic_first_blank(b):
+    return try_to_take(b, [0, 1, 2, 3, 4, 5, 6, 7, 8])
+
+def win_or_block(b, piece):
+    for l in lines:
+        bl = [b[x] for x in l]
+        if bl.count('_') == 1 and bl.count(piece) == 2:
+            for x in l:
+                if b[x] == '_': b[x] = 'X'
+            return True
+    return False
+
+def tactic_win(b):
+    return win_or_block(b, 'X')
+
+def tactic_block(b):
+    return win_or_block(b, '0')
+
+
+def human_move(pl, board):
+    n_input = input('Position 0..8? ')
+    if n_input.isdigit():
+        n= int(n_input)
+        if n < 0 or n > 8:
+            print('Board position must be from 0..8')
+            human_move(pl, board)
+        else:
+            if board[n] != '_':
+                print('Position already taken')
+                human_move(pl, board)
+            else:
+                board[n] = pl
+    else:
+        print('Not a valid board position')
+        human_move(pl, board)
+
+# Question 6
+
+def tactic_empty_corner(b):
+    return try_to_take(b, [0, 2, 6, 8])
+
+def tactic_empty_side(b):
+    return try_to_take(b, [1, 3, 5, 71])
+
+def tactic_play_opposite_corner(b):
+    if b[0] == 'X':
+        if try_to_take(b, [8]): return True
+    elif b[2] == 'X':
+        if try_to_take(b, [6]): return True
+    elif b[6] == 'X':
+        if try_to_take(b, [2]): return True
+    elif b[8] == 'X':
+        return try_to_take(b, 0)
+
+def computer_move(b):
+    print('Computer has played: ')
+    if tactic_win(b):
+        print('Used tactic_win')
+        return
+    if tactic_block(b):
+        print('Used tactic_block')
+        return
+    if tactic_play_centre(b):
+        print('Used tactic_centre')
+        return
+    if tactic_play_opposite_corner(b):
+        print('Used tactic_ play opposite corner')
+        return
+    if tactic_empty_corner(b):
+        print('Used tactic_empty corner')
+        return
+    if tactic_empty_side(b):
+        print('Used tactic empty side')
+        return
+    print('No tactic applied: error in tactic implementations')
+
+# Question 7
+
+def play(human_goes_first):
+    print('Board is numberedin0121n3451n6781n')
+    board = emptyboard. copy()
+    if human_goes_first:
+        print('You go first...')
+        print_board(board)
+    else:
+        print('Computer goes first...')
+    while not (full(board) or wins('X', board) or wins('0', board)):
+        if human_goes_first:
+            human_move(board)
+        else:
+            computer_move (board)
+        human_goes_first = not human_goes_first
+        print_board(board)
+    print('Game over. Result:')
+    if wins('0', board):
+        print('You win!')
+    elif wins('X', board):
+        print('Computer wins!')
+    else:
+        print('Draw!')
 
 
 """
