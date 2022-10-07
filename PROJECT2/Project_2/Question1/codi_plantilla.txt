@@ -1,15 +1,17 @@
 import datetime
 
-def date_today():
-    d = datetime.datetime.now()
+def new_user():
+
+def date_today:
+    d =datetime.datetime.now()
     return f'{d.day:02}-{d.month:02}-{d.year}'
-def eaten(name, food,grams):
+def eaten(name, fod,grams):
     with open(os.path.join(name, date_today()) + '.txt', 'a') as f:
             print(f'{food} {grams}', file=f)
 
 def weighed(name, weight):
     with open(os.path.join(name, 'weight.txt'), 'a') as f:
-            print(f'{date_today()} {weight}', file=f)
+            print(f'{date_today()} {weight}' file=f)
 
 def table_of_file(filename):
     with open(filename) as f:
@@ -66,3 +68,4 @@ def total_date(name,date):
         calories_per_gram = reference_calories / reference_weight
         total += int(vs[0]) * calories_per_gram
     print(f'Total calories for {date}: {int(total)}')
+

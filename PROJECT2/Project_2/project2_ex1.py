@@ -66,3 +66,4 @@ def total_date(name,date):
         calories_per_gram = reference_calories / reference_weight
         total += int(vs[0]) * calories_per_gram
     print(f'Total calories for {date}: {int(total)}')
+

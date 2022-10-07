@@ -1,0 +1,4 @@
+Foods,Weight,Calories
+Carrots,Cooked,100,109
+Carrots,Raw,100,111
+Peas,100,350

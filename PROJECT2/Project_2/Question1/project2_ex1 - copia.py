@@ -1,5 +1,7 @@
 import datetime
-
+import os
+os.system("calories.txt")
+os.system("csvvals.py")
 def date_today():
     d = datetime.datetime.now()
     return f'{d.day:02}-{d.month:02}-{d.year}'
@@ -66,3 +68,4 @@ def total_date(name,date):
         calories_per_gram = reference_calories / reference_weight
         total += int(vs[0]) * calories_per_gram
     print(f'Total calories for {date}: {int(total)}')
+
