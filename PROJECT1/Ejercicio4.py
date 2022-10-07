@@ -2,19 +2,20 @@ from PIL import Image
 import sys
 import subprocess
 #
+import os
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 'Pillow'])
 #
+def brillo_imagen(i, x):
+    def b(p): return brillo(p, x)
+    return procesado_pixels(b, i)
 
-i = Image.open('imagen.png')
+def contraste_imagen(i, x):
+    def c(p): return contraste(p, x)
+    return procesado_pixels(c, i)
 
-p = i.load()
-sx, sy = i.size
-for x in range(sx):
-    for y in range(sy):
-        rojo, verde, azul = p[x, y]
-        gr = int((rojo + verde + azul) / 3)
-        p[x, y] = (gr, gr, gr)
+
+
 
 def gris(p):
     rojo, verde, azul = p
@@ -91,24 +92,10 @@ def contraste(p, x):
     azul_fuera = fijador (int(azul * x))
     return (rojo_fuera, verde_fuera, azul_fuera)
 
-def brillo_imagen(i, x):
-    def b(p): return brillo(p, x)
-    return procesado_pixels(b, i)
-
-def contraste_imagen(i, x):
-    def c(p): return contraste(p, x)
-    return procesado_pixels(c, i)
 
 
-menosbrillo = brillo_imagen(i, 0.5)
-masbrillo = brillo_imagen (i, -0.5)
-menosconstrastes = contraste_imagen (i, 0.25)
-masconstrastes = contraste_imagen (i, 1.5)
 
-brillo.save('menosbrillo.png')
-masbrillo.save('masbrillo.png')
-menosconstrastes.save('menosconstrastes.png')
-masconstrastes.save('masconstrastes.png')
+
 
 def vueltahorizontal(i):
     p = i.load()
@@ -161,11 +148,35 @@ def crear_imagen(i):
         images.append(descoloro)
     return images
 
-i = Image.open('imagen.png')
-images = [i]
+try:
+    i = Image.open('..\\imagen.png')
+    p = i.load()
+    sx, sy = i.size
+    for x in range(sx):
+        for y in range(sy):
+            rojo, verde, azul = p[x, y]
+            gr = int((rojo + verde + azul) / 3)
+            p[x, y] = (gr, gr, gr)
+    #
+    menosbrillo = brillo_imagen(i, 0.5)
+    masbrillo = brillo_imagen (i, -0.5)
+    menosconstrastes = contraste_imagen (i, 0.25)
+    masconstrastes = contraste_imagen (i, 1.5)
+    #
+    brillo.save('menosbrillo.png')
+    masbrillo.save('masbrillo.png')
+    menosconstrastes.save('menosconstrastes.png')
+    masconstrastes.save('masconstrastes.png')
+    #
+    i = Image.open('imagen.png')
+    images = [i]
 
-for x in range(99):
-    i = difuminar(i)
-    images.append(i)
+    for x in range(99):
+        i = difuminar(i)
+        images.append(i)
 
-images[0].save('difuminado.gif', save_all=True, append_images=images[1:], duration=100, loop=0)
+    images[0].save('difuminado.gif', save_all=True, append_images=images[1:], duration=100, loop=0)
+except:
+    print("NO IMAGE FOUND!!")
+finally:
+    print("GOOD BYE!!")
