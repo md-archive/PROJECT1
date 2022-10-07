@@ -62,8 +62,6 @@ def submenuEjercicio1():
 
     generar_menu(opciones, 'b')
 
-
-
 #Funciones Submenús Ejercicio 2
 
 def submenuEjercicio2():
@@ -104,3 +102,4 @@ def funcion2lookupWeight():
 def funcion2final():
     print('Has elegido el Ejercicio 2 Final')
     
+    generar_menu(opciones, 'b')
