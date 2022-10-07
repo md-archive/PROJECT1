@@ -1,129 +1,29 @@
-import turtle
-import random
-import math
-#
-t = turtle.Turtle()
-#
-sides = 4
-degrees = 90
-distance = 100
-flower = 10
-#
-circle_degrees = 360
-#
-size = 100
-lines = 40
-#
-polygon_sides = 8
-#
-rad_eq_total_size = 50
-#
-star_quantity = 20
-#
-def func_square():
-        for _ in range(sides):
-                t.right(degrees)
-                t.forward(distance)
-func_square()
-#
-def func_1_square():
-        for _ in range(sides):
-                t.forward(distance)
-                t.right(degrees)
-#
-for _ in range(flower):
-        func_1_square(distance)
-        t.right(circle_degrees/flower)
-
-def func_1_star(size, lines):
-        for _ in range(lines):
-                t.forward(size)
-                t.back(size)
-                t.right(circle_degrees/lines)
-        func_1_star(size, lines)
-
-def func_1_poly(polygon_size):
-   for _ in range(polygon_sides):
-      t.forward(polygon_size) 
-      t.right(degrees)
-func_1_poly(100)
-
-def funcion1circle():
-     total = 0
-     t.setposition(0,0)   
-     total = 2 * math.pi * rad_eq_total_size
-     num = int(total)
-     for _ in range(num):
-        t.forward(1.5)
-        t.left(1.15)
-
-def funcion1stars(drw_forw,draw_forw2,drw_forw3,num_lines):
-    t.penup()
-    t.home()
-    t.forward(drw_forw)
-    t.left(left_degrees)
-    t.forward(draw_forw2)
-    t.pendown()
-    for _ in range(num_lines):
-        t.forward(drw_forw3)
-        t.back(drw_forw3)
-        t.right(degrees/num_lines)
-# randint = Random star position
-# number shows where the turtle will be displayed
-#
-for _ in range(star_quantity):
-    left_degrees = 90
-    funcion1stars(random.randint(-300,300),
-        random.randint(-300,300),
-        random.randint(10,150),
-        random.randint(3,30)) 
-
-degrees=360
-#
-quantity = 20
-#
-def funcion1starfilled(drw_forw,draw_forw2,drw_forw3,num_lines):
-    t.penup()
-    t.goto(drw_forw,draw_forw2)
-    t.pendown()
-    for _ in range(num_lines):
-        t.forward(drw_forw3)
-        t.back(drw_forw3)
-        t.right(degrees/num_lines)
-#
-t.hideturtle()
-t.speed(8)
-funcion1starfilled(10,10,200,7)
-t.showturtle()
-#
-t.pensize(20)
-funcion1starfilled(0, 0, 200, 7)
-t.pensize(15)
-t.color(0.25, 0.25, 0.25)
-funcion1starfilled(0, 0, 200, 7)
-t.pensize(10)
-t.color(0.5, 0.5, 0.5)
-funcion1starfilled(0, 0, 200, 7)
-t.pensize(5)
-t.color(0.75, 0.75, 0.75)
-funcion1starfilled(0, 0, 200, 7)
-t.pensize(2)
-t.color(1, 1, 1)
-funcion1starfilled(0, 0, 200, 7)
-t.hideturtle()
-
-
+def funcion1square():
+    print('Has elegido el Ejercicio 1 Square')
+    
 def funcion1filledSquare():
     print('Has elegido el Ejercicio 1 Filled Square')
     
 def funcion1multiSquare():
     print('Has elegido el Ejercicio 1 MultiSquare')
-  
+
+def funcion1polygon():
+    print('Has elegido el Ejercicio 1 Polygon')
+    
+def funcion1circle():
+    print('Has elegido el Ejercicio 1 Circle')
+    
 def funcion1filledCircle():
     print('Has elegido el Ejercicio 1 Filled Circle')
     
 def funcion1squareCircles():
-    print('Has elegido el Ejercicio 1 Square Circles')  
+    print('Has elegido el Ejercicio 1 Square Circles')
+    
+def funcion1star():
+    print('Has elegido el Ejercicio 1 Star')
+    
+def funcion1stars():
+    print('Has elegido el Ejercicio 1 Stars')
     
 def funcion1AgraphPlotter():
     print('Has elegido el Ejercicio 1A Graph Plotter')
