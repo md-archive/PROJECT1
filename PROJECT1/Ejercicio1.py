@@ -2,7 +2,7 @@ import turtle
 import random
 import math
 #
-t_inv = turtle.Turtle()
+t = turtle.Turtle()
 #
 sides = 4
 degrees = 90
@@ -22,52 +22,52 @@ star_quantity = 20
 #
 def func_square():
         for _ in range(sides):
-                t_inv.right(degrees)
-                t_inv.forward(distance)
+                t.right(degrees)
+                t.forward(distance)
 func_square()
 #
 def func_1_square():
         for _ in range(sides):
-                t_inv.forward(distance)
-                t_inv.right(degrees)
+                t.forward(distance)
+                t.right(degrees)
 #
 for _ in range(flower):
         func_1_square(distance)
-        t_inv.right(circle_degrees/flower)
+        t.right(circle_degrees/flower)
 
 def func_1_star(size, lines):
         for _ in range(lines):
-                t_inv.forward(size)
-                t_inv.back(size)
-                t_inv.right(circle_degrees/lines)
+                t.forward(size)
+                t.back(size)
+                t.right(circle_degrees/lines)
         func_1_star(size, lines)
 
 def func_1_poly(polygon_size):
    for _ in range(polygon_sides):
-      t_inv.forward(polygon_size) 
-      t_inv.right(degrees)
+      t.forward(polygon_size) 
+      t.right(degrees)
 func_1_poly(100)
 
 def funcion1circle():
      total = 0
-     t_inv.setposition(0,0)   
+     t.setposition(0,0)   
      total = 2 * math.pi * rad_eq_total_size
      num = int(total)
      for _ in range(num):
-        t_inv.forward(1.5)
-        t_inv.left(1.15)
+        t.forward(1.5)
+        t.left(1.15)
 
 def funcion1stars(drw_forw,draw_forw2,drw_forw3,num_lines):
-    t_inv.penup()
-    t_inv.home()
-    t_inv.forward(drw_forw)
-    t_inv.left(left_degrees)
-    t_inv.forward(draw_forw2)
-    t_inv.pendown()
+    t.penup()
+    t.home()
+    t.forward(drw_forw)
+    t.left(left_degrees)
+    t.forward(draw_forw2)
+    t.pendown()
     for _ in range(num_lines):
-        t_inv.forward(drw_forw3)
-        t_inv.back(drw_forw3)
-        t_inv.right(degrees/num_lines)
+        t.forward(drw_forw3)
+        t.back(drw_forw3)
+        t.right(degrees/num_lines)
 # randint = Random star position
 # number shows where the turtle will be displayed
 #
@@ -83,34 +83,34 @@ degrees=360
 quantity = 20
 #
 def funcion1starfilled(drw_forw,draw_forw2,drw_forw3,num_lines):
-    t_inv.penup()
-    t_inv.goto(drw_forw,draw_forw2)
-    t_inv.pendown()
+    t.penup()
+    t.goto(drw_forw,draw_forw2)
+    t.pendown()
     for _ in range(num_lines):
-        t_inv.forward(drw_forw3)
-        t_inv.back(drw_forw3)
-        t_inv.right(degrees/num_lines)
+        t.forward(drw_forw3)
+        t.back(drw_forw3)
+        t.right(degrees/num_lines)
 #
-t_inv.hideturtle()
-t_inv.speed(8)
+t.hideturtle()
+t.speed(8)
 funcion1starfilled(10,10,200,7)
-t_inv.showturtle()
+t.showturtle()
 #
-t_inv.pensize(20)
+t.pensize(20)
 funcion1starfilled(0, 0, 200, 7)
-t_inv.pensize(15)
-t_inv.color(0.25, 0.25, 0.25)
+t.pensize(15)
+t.color(0.25, 0.25, 0.25)
 funcion1starfilled(0, 0, 200, 7)
-t_inv.pensize(10)
-t_inv.color(0.5, 0.5, 0.5)
+t.pensize(10)
+t.color(0.5, 0.5, 0.5)
 funcion1starfilled(0, 0, 200, 7)
-t_inv.pensize(5)
-t_inv.color(0.75, 0.75, 0.75)
+t.pensize(5)
+t.color(0.75, 0.75, 0.75)
 funcion1starfilled(0, 0, 200, 7)
-t_inv.pensize(2)
-t_inv.color(1, 1, 1)
+t.pensize(2)
+t.color(1, 1, 1)
 funcion1starfilled(0, 0, 200, 7)
-t_inv.hideturtle()
+t.hideturtle()
 
 
 def funcion1filledSquare():
