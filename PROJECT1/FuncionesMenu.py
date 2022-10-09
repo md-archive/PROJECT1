@@ -1,7 +1,7 @@
 from Ejercicio1 import *
 #from Ejercicio2 import *
-from Ejercicio3 import *
-from Ejercicio4 import *
+#from Ejercicio3 import *
+#from Ejercicio4 import *
 
 #Opciones Menú
 
