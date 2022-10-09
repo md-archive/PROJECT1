@@ -90,6 +90,20 @@ def submenuEjercicio3():
 
     generar_menu(opciones, 'b')
 
+def submenuEjercicio4():
+    opciones = {
+        '01': ('Pixels in place', funcion4ProcessPixelsInPlace),
+        '02': ('Flip Image', funcion4FlipImage),
+        '03': ('Image Border', funcion4Border),
+        '04': ('Process Pixels', funcion4ProcessPixels),
+        '05': ('GIF Fade', funcion4Fade),
+        '06': ('Make Images', funcion4MakeImages),
+        '07': ('Ejercicio 3 final', funcion4final),
+        'b': ('Volver al menú principal', salir)
+    }
+
+    generar_menu(opciones, 'b')
+
 def funcion2listWeights():
     print('Has elegido el Ejercicio 2 List Weights')
     
