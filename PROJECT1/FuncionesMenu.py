@@ -81,10 +81,10 @@ def submenuEjercicio3():
         '02': ('Random Move', funcion3RandomMove),
         '03': ('Human Move', funcion3HumanMove),
         '04': ('Computer Move', funcion3ComputerMove),
-        
-        '05': ('Human Move', funcion3HumanMove),
-        '06': ('Computer Move', funcion3ComputerMove),
-        '07': ('Ejercicio 2 final', funcion2final),
+        '05': ('Swap Player', funcion3SwapPlayer),
+        '06': ('Next Board', funcion3NextBoard),
+        '07': ('Sum X Wins', funcion3SumXWins),
+        '08': ('Ejercicio 3 final', funcion3final),
         'b': ('Volver al menú principal', salir)
     }
 
