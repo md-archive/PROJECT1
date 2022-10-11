@@ -1,5 +1,5 @@
 from Ejercicio1 import *
-#from Ejercicio2 import *
+from Ejercicio2 import *
 #from Ejercicio3 import *
 #from Ejercicio4 import *
 
@@ -23,7 +23,7 @@ def generar_menu(opciones, opcion_salida):
     opcion = None
     while opcion != opcion_salida:
         mostrar_menu(opciones)
-        opcion = leer_opcion(opciones)
+        opcion = leer_opcion(opcion, opciones)
         ejecutar_opcion(opcion, opciones)
         print()
 
@@ -32,12 +32,30 @@ def mostrar_menu(opciones):
     for clave in sorted(opciones):
         print(f' {clave}) {opciones[clave][0]}')
 
-
+'''
 def leer_opcion(opciones):
     while (a := input('Opción: ')) not in opciones:
         print('Opción incorrecta, vuelva a intentarlo.')
     return a
+'''
+def leer_opcion(opcion, opciones):
+    opcion = input('Opción: ')
+    alternativas = ['1','2','3','4','5','6','7','8','9','10','11','B','S']
+    if '01' in opciones:
+        if opcion !=10 or opcion !=11 :
+            opcion = '0' + opcion
+        elif opcion == 'B' or opcion == 'S':
+            opcion = input.lower()
+   
+    while opcion not in opciones:
+        verificar_input(opcion, opciones)
 
+    return opcion
+
+def verificar_input(opcion, opciones):
+    if opcion not in opciones:
+        print('Opción incorrecta, vuelva a intentarlo.')
+        leer_opcion(opcion, opciones)
 
 def ejecutar_opcion(opcion, opciones):
     opciones[opcion][1]()
@@ -68,10 +86,10 @@ def submenuEjercicio1():
 
 def submenuEjercicio2():
     opciones = {
-        '01': ('List Weights', funcion2listWeights),
-        '02': ('List Dates', funcion2listDates),
-        '03': ('Lookup Weight', funcion2lookupWeight),
-        '04': ('Ejercicio 2 final', funcion2final),
+        '01': ('List Weights', list_weights),
+        '02': ('List Dates', list_dates),
+        '03': ('Lookup Weight', lookup_weight),
+        '04': ('New User', new_user),
         'b': ('Volver al menú principal', salir)
     }
 
@@ -105,7 +123,7 @@ def submenuEjercicio4():
     }
 
     generar_menu(opciones, 'b')
-
+'''
 def funcion2listWeights():
     print('Has elegido el Ejercicio 2 List Weights')
     
@@ -119,3 +137,4 @@ def funcion2final():
     print('Has elegido el Ejercicio 2 Final')
     
     generar_menu(opciones, 'b')
+'''
