@@ -6,16 +6,42 @@ import os
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 'Pillow'])
 #
-def brillo_imagen(i, x):
-    def b(p): return brillo(p, x)
-    return procesado_pixels(b, i)
+# def funcion4ProcessPixelsInPlace():
+# def funcion4FlipImage():
+# def funcion4Border():
+# def funcion4ProcessPixels():
+# def funcion4Fade():
+# def funcion4MakeImages():
+# def funcion4final():
+# # brightness_image
 
+# clamp 
+def fijador(x):
+    if x < 0: return 0
+    elif x > 255: return 255
+    else: return x
+# brightness
+def brillo(p,x):
+    rojo, verde, azul = p
+    rojo_fuera = fijador (int(rojo + x * 128))
+    verde_fuera = fijador (int(verde + x * 128))
+    azul_fuera = fijador (int(azul + x * 128))
+    return (rojo_fuera, verde_fuera, azul_fuera)
+# contrast
+def contraste(p, x):
+    rojo, verde, azul = p
+    rojo_fuera = fijador (int(rojo * x))
+    verde_fuera = fijador (int(verde * x))
+    azul_fuera = fijador (int(azul * x))
+    return (rojo_fuera, verde_fuera, azul_fuera)
+# brillo_imagen
+def brillo_imagen(i, x):
+        def b(p): return brillo(p, x)
+        return procesado_pixels(b, i)
+# contrast_image
 def contraste_imagen(i, x):
     def c(p): return contraste(p, x)
     return procesado_pixels(c, i)
-
-
-
 
 def gris(p):
     rojo, verde, azul = p
@@ -73,30 +99,12 @@ def procesado_pixels(f, i):
             p2[x, y] = f(p[x, y])
     return i2
 
-def fijador(x):
-    if x < 0: return 0
-    elif x > 255: return 255
-    else: return x
-
-def brillo(p,x):
-    rojo, verde, azul = p
-    rojo_fuera = fijador (int(rojo + x * 128))
-    verde_fuera = fijador (int(verde + x * 128))
-    azul_fuera = fijador (int(azul + x * 128))
-    return (rojo_fuera, verde_fuera, azul_fuera)
-
-def contraste(p, x):
-    rojo, verde, azul = p
-    rojo_fuera = fijador (int(rojo * x))
-    verde_fuera = fijador (int(verde * x))
-    azul_fuera = fijador (int(azul * x))
-    return (rojo_fuera, verde_fuera, azul_fuera)
 
 
 
 
 
-
+#hflip
 def vueltahorizontal(i):
     p = i.load()
     sx, sy = i.size
@@ -106,7 +114,7 @@ def vueltahorizontal(i):
             p[x, y]
             p[x, y] = p[sx -x -1, y]
             p[sx - x - 1, y] = r
-
+#vflip
 def vueltavertical(i):
     p = i.load()
     sx, sy = i.size
@@ -120,7 +128,7 @@ def vueltavertical(i):
 def rotar180(i):
     vueltahorizontal(i)
     vueltavertical(i)
-
+# blur_in_place
 def difuminar(i):
     p = i.load()
     sx, sy = i.size
@@ -134,7 +142,7 @@ def difuminar(i):
                     sumverde = sumverde + recursoverde
                     sumazul = sumazul + recursoazul
                 p[x, y] = (int(sumrojo / 9), int(sumverde / 9), int(sumazul / 9))
-                
+# blur_auto   
 def difuminar_auto(i, n):
     i = borde(i, n, (255, 255, 255))
     for x in range(n):
