@@ -70,6 +70,21 @@ def random_game():
     else:
         print('Any!')
 
+def random_game_1():
+    b = emptyboard.copy()
+    pl ='X'
+    while not (full(b) or wins('X', b) or wins('0', b)):
+        print_board(b)
+        print("\n--------------------") 
+        random_play(pl, b)
+    print_board(b)
+    print("\n--------------------") 
+    print('Game over. Result:')
+    if wins('X', b):
+        print('X wins!')
+    else:
+        print('Any!')
+
 # Question 4
 
 
@@ -189,7 +204,7 @@ def play(human_goes_first):
 human_goes_first = True
 
 
-random_game()
+random_game_1()
 #p = random_play(pl, b)
 #while wins(p, b) != True:
 
