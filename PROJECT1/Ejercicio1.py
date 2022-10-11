@@ -1,4 +1,3 @@
-from os import wait3
 import turtle
 import random
 import math

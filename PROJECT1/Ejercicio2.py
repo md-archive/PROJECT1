@@ -92,8 +92,8 @@ def weighed(name, weight):
 
 arg = sys.argv
 
-if len(arg) > 0:
-    cmd = arg[0]
+if len(arg) > 1:
+    cmd = arg[1]
     if cmd == 'list':
         if len(arg) > 3 and arg[2] == 'eaten':
             list_eaten(arg[3], arg[4])
