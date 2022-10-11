@@ -59,6 +59,7 @@ def random_game():
     while not (full(b) or wins('X', b) or wins('0', b)):
         print_board(b)
         print('')
+        print("\n--------------------\n") 
         random_play(pl, b)
         if pl == '0': pl ='X'
         else: pl = '0'
@@ -186,7 +187,7 @@ def play(human_goes_first):
     else:
         print('Draw!')
 
-
+random_game()
 
 """
 #Jugada_aleatoria(player)
