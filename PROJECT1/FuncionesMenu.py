@@ -55,8 +55,10 @@ def submenuEjercicio1():
         '07': ('Opción Square Circles', funcion1squareCircles),
         '08': ('Opción Star', funcion1star),
         '09': ('Opción Stars', funcion1stars),
-        '10': ('Opción Agraph Plotter', funcion1AgraphPlotter),
-        '11': ('Opción Clock', funcion1Bclock),
+        '10': ('Opción Grid Circles', funcion1gridcircles),
+        '10': ('Opción Square Gamut', funcion1squaregamut),
+        '11': ('Opción Agraph Plotter', funcion1AgraphPlotter),
+        '12': ('Opción Clock', funcion1Bclock),
         'b': ('Volver al menú principal', salir)
     }
 
