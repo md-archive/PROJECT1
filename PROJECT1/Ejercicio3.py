@@ -1,7 +1,6 @@
 # !/usr/bin/python3
 # coding: utf-8
 import random
-from tkinter import N
 
 # Reglas del juego
 missatge = "Las reglas para empezar a jugar son simples, cada jugador coloca \
@@ -51,6 +50,7 @@ def random_play(pl, b):
         p = (p + 1) % 9
     b[p] = pl
 
+# Dos Jugadores
 def random_game():
     b = emptyboard.copy()
     pl ='0'
@@ -70,6 +70,7 @@ def random_game():
     else:
         print('Any!')
 
+# Un Jugador
 def random_game_1():
     b = emptyboard.copy()
     pl ='X'
@@ -86,8 +87,6 @@ def random_game_1():
         print('Any!')
 
 # Question 4
-
-
 
 # Question 5
 def try_to_take(b, ps):
@@ -142,7 +141,7 @@ def tactic_empty_corner(b):
     return try_to_take(b, [0, 2, 6, 8])
 
 def tactic_empty_side(b):
-    return try_to_take(b, [1, 3, 5, 71])
+    return try_to_take(b, [1, 3, 5, 7])
 
 def tactic_play_opposite_corner(b):
     if b[0] == 'X':
@@ -155,7 +154,7 @@ def tactic_play_opposite_corner(b):
         return try_to_take(b, 0)
 
 def computer_move(b):
-    print('Computer has played: ')
+    print('Computer has played:')
     if tactic_win(b):
         print('Used tactic_win')
         return
@@ -166,20 +165,20 @@ def computer_move(b):
         print('Used tactic_centre')
         return
     if tactic_play_opposite_corner(b):
-        print('Used tactic_ play opposite corner')
+        print('Used  tactic_play_opposite_corner')
         return
     if tactic_empty_corner(b):
-        print('Used tactic_empty corner')
+        print('Used  tactic_empty_corner')
         return
     if tactic_empty_side(b):
-        print('Used tactic empty side')
+        print('Used  tactic_empty_side')
         return
     print('No tactic applied: error in tactic implementations')
 
 # Question 7
 
 def play(human_goes_first):
-    print('Board is numberedin0121n3451n6781n')
+    print('Board is numbered\n012\n345\n678\n')
     board = emptyboard. copy()
     if human_goes_first:
         print('You go first...')
@@ -203,8 +202,10 @@ def play(human_goes_first):
 
 human_goes_first = True
 
+random_game()
+#random_game_1()
 
-random_game_1()
+
 #p = random_play(pl, b)
 #while wins(p, b) != True:
 
