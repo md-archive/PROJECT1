@@ -1,6 +1,7 @@
 # !/usr/bin/python3
 # coding: utf-8
 import random
+from tkinter import N
 
 # Reglas del juego
 missatge = "Las reglas para empezar a jugar son simples, cada jugador coloca \
@@ -27,10 +28,8 @@ pl ='0'
 def print_board(b):
     for n, x in enumerate(b):
         print(x, end='')
-        if n % 3 == 0:
-            print('')
-        if n % 3 == 0:
-            print('')
+        if n == 2 or n == 5: 
+            print('') 
 
 
 def full(b):
@@ -39,10 +38,9 @@ def full(b):
 
 def wins(p, b):
     win = [p, p, p]
-    for ll in lines:
-        bl = [b[x] for x in ll]
-        if bl == win:
-            return True
+    for l in lines:
+        bl = [b[x] for x in l]
+        if bl == win: return True
     return False
 
 
@@ -58,22 +56,23 @@ def random_game():
     pl ='0'
     while not (full(b) or wins('X', b) or wins('0', b)):
         print_board(b)
-        print('')
-        print("\n--------------------\n") 
+        print("\n--------------------") 
         random_play(pl, b)
         if pl == '0': pl ='X'
         else: pl = '0'
     print_board(b)
+    print("\n--------------------") 
     print('Game over. Result:')
     if wins('0', b):
         print('0 wins!')
     elif wins('X', b):
         print('X wins!')
     else:
-        print('Draw!')
-   
+        print('Any!')
 
 # Question 4
+
+
 
 # Question 5
 def try_to_take(b, ps):
@@ -128,7 +127,7 @@ def tactic_empty_corner(b):
     return try_to_take(b, [0, 2, 6, 8])
 
 def tactic_empty_side(b):
-    return try_to_take(b, [1, 3, 5, 7])
+    return try_to_take(b, [1, 3, 5, 71])
 
 def tactic_play_opposite_corner(b):
     if b[0] == 'X':
@@ -141,7 +140,7 @@ def tactic_play_opposite_corner(b):
         return try_to_take(b, 0)
 
 def computer_move(b):
-    print('Computer has played:')
+    print('Computer has played: ')
     if tactic_win(b):
         print('Used tactic_win')
         return
@@ -152,20 +151,20 @@ def computer_move(b):
         print('Used tactic_centre')
         return
     if tactic_play_opposite_corner(b):
-        print('Used  tactic_play_opposite_corner')
+        print('Used tactic_ play opposite corner')
         return
     if tactic_empty_corner(b):
-        print('Used  tactic_empty_corner')
+        print('Used tactic_empty corner')
         return
     if tactic_empty_side(b):
-        print('Used  tactic_empty_side')
+        print('Used tactic empty side')
         return
     print('No tactic applied: error in tactic implementations')
 
 # Question 7
 
 def play(human_goes_first):
-    print('Board is numbered\n012\n345\n678\n')
+    print('Board is numberedin0121n3451n6781n')
     board = emptyboard. copy()
     if human_goes_first:
         print('You go first...')
@@ -187,7 +186,16 @@ def play(human_goes_first):
     else:
         print('Draw!')
 
+human_goes_first = True
+
+
 random_game()
+#p = random_play(pl, b)
+#while wins(p, b) != True:
+
+#    play(human_goes_first)
+    #human_move(2, b)
+    #random_play(pl, b)
 
 """
 #Jugada_aleatoria(player)
