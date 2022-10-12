@@ -11,6 +11,7 @@ missatge = "Las reglas para empezar a jugar son simples, cada jugador coloca \
 i = 0
 emptyboard = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
 b = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
+board = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
 h1 = [0, 1, 2]
 h2 = [3, 4, 5]
 h3 = [6, 7, 8]
@@ -74,7 +75,7 @@ def random_game():
 def random_game_1():
     b = emptyboard.copy()
     pl ='X'
-    while not (full(b) or wins('X', b) or wins('0', b)):
+    while not (full(b) or wins('X', b)):
         print_board(b)
         print("\n--------------------") 
         random_play(pl, b)
@@ -120,10 +121,11 @@ def tactic_block(b):
 
 def human_move(pl, board):
     n_input = input('Position 0..8? ')
+    #print(pl)
     if n_input.isdigit():
         n= int(n_input)
         if n < 0 or n > 8:
-            print('Board position must be from 0..8')
+            print('Board position must be from 0..8 ')
             human_move(pl, board)
         else:
             if board[n] != '_':
@@ -202,8 +204,33 @@ def play(human_goes_first):
 
 human_goes_first = True
 
-random_game()
+#random_game()
 #random_game_1()
+
+print("####################") 
+print("Posiciones:")
+print("####################") 
+print("012")
+print("345")
+print("678")
+print("####################") 
+
+while not (full(b) or wins('X', b) or wins('0', b)):
+        print_board(b)
+        print("\n--------------------") 
+        human_move(pl, b)
+        if pl == '0': pl ='X'
+        else: pl = '0'
+print_board(b)
+print("\n--------------------") 
+print('Game over. Result:')
+if wins('0', b):
+    print('0 wins!')
+elif wins('X', b):
+    print('X wins!')
+else:
+    print('Any!')
+    
 
 
 #p = random_play(pl, b)
