@@ -3,9 +3,9 @@ from FuncionesMenu import *
 def menu_principal():
     opciones = {
         '1': ('Ejercicio 1', submenuEjercicio1),
-        '2': ('Ejercicio 2', Ejercicio2),
-        '3': ('Ejercicio 3', Ejercicio3),
-        '4': ('Ejercicio 4', Ejercicio4),
+        '2': ('Ejercicio 2', submenuEjercicio2),
+        '3': ('Ejercicio 3', submenuEjercicio3),
+        '4': ('Ejercicio 4', submenuEjercicio4),
         's': ('Salir', salir)
     }
 

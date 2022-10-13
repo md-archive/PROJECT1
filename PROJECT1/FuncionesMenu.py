@@ -1,6 +1,7 @@
 from Ejercicio1 import *
 from Ejercicio2 import *
 #from Ejercicio3 import *
+from Ejercicio4 import *
 #from Ejercicio4 import *
 
 #Opciones Menú
@@ -112,13 +113,15 @@ def submenuEjercicio3():
 
 def submenuEjercicio4():
     opciones = {
-        '01': ('Pixels in place', funcion4ProcessPixelsInPlace),
-        '02': ('Flip Image', funcion4FlipImage),
-        '03': ('Image Border', funcion4Border),
-        '04': ('Process Pixels', funcion4ProcessPixels),
-        '05': ('GIF Fade', funcion4Fade),
-        '06': ('Make Images', funcion4MakeImages),
-        '07': ('Ejercicio 3 final', funcion4final),
+        '01': ('Black and White (1st way)', funcion4BlackandWhite_1),
+        '02': ('Black and White (2nd way)', funcion4BlackandWhite_2),
+        '02': ('Pixels in place', funcion4ProcessPixelsInPlace),
+        '03': ('Flip Image', funcion4FlipImage),
+        '04': ('Image Border', funcion4Border),
+        '05': ('Process Pixels', funcion4Fade_1),
+        '06': ('GIF Fade', funcion4Fade_2),
+        '07': ('Make Images', funcion4MakeImages),
+        '08': ('Ejercicio 3 final', funcion4final),
         'b': ('Volver al menú principal', salir)
     }
 
