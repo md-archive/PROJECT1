@@ -87,8 +87,8 @@ def weighed(name, weight):
         w = csv.writer(f)
         if is_new: w.writerow(['Date', 'Weight'])
         w.writerow([date_today(), weight]) 
-        print('Date,Weight', file=f)
-        print(f'{date_today()},{weight}', file=f)
+        # print('Date,Weight', file=f)
+        # print(f'{date_today()},{weight}', file=f)
 
 arg = sys.argv
 
