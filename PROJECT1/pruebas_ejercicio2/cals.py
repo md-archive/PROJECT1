@@ -104,17 +104,17 @@ lookup_calories("'Peas':")
     #
     # -------------------------------------------------------------
     #
-# def total_date(name, date):
-#     calories = table_of_file('calories.txt')
-#     table = table_of_file(os.path.join(name, date) + '.txt')
-#     total = 0
-#     for k, vs in table.items():
-#         weight_and_calories = calories[k]
-#         reference_weight = int(weight_and_calories[0])
-#         reference_calories = int(weight_and_calories[1])
-#         calories_per_gram = reference_calories / reference_weight
-#         total += int(vs[0]) * calories_per_gram
-#     print(f'Total calories for {date}: {int(total)}')
+def total_date(name, date):
+    calories = table_of_file('calories.txt')
+    table = table_of_file(os.path.join(name, date) + '.txt')
+    total = 0
+    for k, vs in table.items():
+        weight_and_calories = calories[k]
+        reference_weight = int(weight_and_calories[0])
+        reference_calories = int(weight_and_calories[1])
+        calories_per_gram = reference_calories / reference_weight
+        total += int(vs[0]) * calories_per_gram
+    print(f'Total calories for {date}: {int(total)}')
 # total_date('robert','01-01-2020.txt')
     #
     # -------------------------------------------------------------
@@ -123,6 +123,7 @@ lookup_calories("'Peas':")
     #
     # -------------------------------------------------------------
     #
+    input(name)
 def new_user(name):
     dirname = os.path.dirname(__file__)
     filename = (os.path.join(dirname,name))
@@ -133,7 +134,7 @@ def new_user(name):
         print(f'Directory {name} already registered.')
     with open(os.path.join(filename, 'weight.txt'), 'w') as f:
         print('Date,Weight', file=f)
-new_user('sixto')
+
     #
     # -------------------------------------------------------------
     #
@@ -179,20 +180,18 @@ def lookup_weight(name, date):
     elif len(vs) > 0:
         print(f'Weight at {date} was {vs[0]}')
 
-# input("Write Command and Descritpion: ")
-# def total_date(name, date):
-#     calories = table_of_file('calories.txt')
-#     table = table_of_file(os.path.join(name, date) + '.txt')
-#     total = 0
-#     for k, vs in table.items():
-#         weight_and_calories = calories[k]
-#         reference_weight = int(weight_and_calories[0])
-#         reference_calories = int(weight_and_calories[1])
-#         calories_per_gram = reference_calories / reference_weight
-#         total += int(vs[0]) * calories_per_gram
-#     print(f'Total calories for {date}: {int(total)}')
-
-input("MOLT BONES!!: ")
+input("Write Command and Descritpion: ").split()
+def total_date(name, date):
+    calories = table_of_file('calories.txt')
+    table = table_of_file(os.path.join(name, date) + '.txt')
+    total = 0
+    for k, vs in table.items():
+        weight_and_calories = calories[k]
+        reference_weight = int(weight_and_calories[0])
+        reference_calories = int(weight_and_calories[1])
+        calories_per_gram = reference_calories / reference_weight
+        total += int(vs[0]) * calories_per_gram
+    print(f'Total calories for {date}: {int(total)}')
 
 arg = sys.argv
 print ("This is the name of the script: ", sys.argv[1])
