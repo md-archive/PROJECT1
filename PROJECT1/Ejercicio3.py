@@ -51,7 +51,7 @@ def random_play(pl, b):
         p = (p + 1) % 9
     b[p] = pl
 
-# Dos Jugadores
+# Dos Maquinas
 def random_game():
     b = emptyboard.copy()
     pl ='0'
@@ -71,7 +71,7 @@ def random_game():
     else:
         print('Any!')
 
-# Un Jugador
+# Una Maquina
 def random_game_1():
     b = emptyboard.copy()
     pl ='X'
@@ -202,11 +202,13 @@ def play(human_goes_first):
     else:
         print('Draw!')
 
-human_goes_first = True
 
+##Maquina 2
 #random_game()
+##Maquina 1
 #random_game_1()
 
+## Dos perosnas
 print("####################") 
 print("Posiciones:")
 print("####################") 
