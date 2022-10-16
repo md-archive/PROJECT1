@@ -84,19 +84,19 @@ list_dates('mary')
     #
     # -------------------------------------------------------------
     #
-def lookup_calories(food):
-    table = table_of_file('calories.txt')
-    vs = table[food]
-    if vs is None:
-        print(f'Food {food} not found')
-    else:
-        if len(vs) > 1:
-            weight = vs[0]
-            calories = vs[1]
-            print(f'There are {calories} calories in {weight}g of {food}')
-        else:
-            print(f'Malformed calorie entry for {food} in calories file')
-lookup_calories("'Peas':")
+# def lookup_calories(food):
+#     table = table_of_file('calories.txt')
+#     vs = table[food]
+#     if vs is None:
+#         print(f'Food {food} not found')
+#     else:
+#         if len(vs) > 1:
+#             weight = vs[0]
+#             calories = vs[1]
+#             print(f'There are {calories} calories in {weight}g of {food}')
+#         else:
+#             print(f'Malformed calorie entry for {food} in calories file')
+# lookup_calories("'Peas':")
     #
     # -------------------------------------------------------------
     #
