@@ -68,25 +68,6 @@ def funcion1multiSquare():
         poly()
         t.rt(360.0 / FW_2)
         t.speed(9)
-# def funcion1multiSquare(): 
-#     def many_squares(SIDES):
-#         t = turtle.Turtle()
-#         t.speed(8)
-#         for _ in range(SIDES):
-#             funcion1square()
-#             t.right(360.0 / SIDES)
-#     def poly(SIDES,DISTANCE):
-#         t = turtle.Turtle()
-#         for _ in range(SIDES):
-#             t.forward(DISTANCE)
-#             t.right(360.0 / SIDES)
-#     def many_poly(SIDES, number, DISTANCE):
-#         t = turtle.Turtle()
-#         for _ in range(number):
-#             poly(SIDES, DISTANCE)
-#             t.right(360.0 / number)
-#     many_squares(SIDES)
-#     many_poly(7,16,100)
 
 def funcion1polygon():
     t = turtle.Turtle()

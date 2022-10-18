@@ -16,11 +16,11 @@ def list_eaten(name, date):
     for k, vs in table_of_file(os.path.join(name, date) + '.csv').items():
         print(f'{k} {vs[0]}')
 
-def list_weights(name):
+def funcion2listWeights(name):
     for k, vs in table_of_file(os.path.join(name, 'weight.csv')).items():
         print(f'{k} {vs[0]}')
     
-def list_dates(name):
+def funcion2listDates(name):
     for filename in sorted(os.listdir(name)):
         if filename != 'weight.csv': print(filename[:-4])
 
@@ -43,7 +43,7 @@ def lookup_calories(food):
         else:
             print(f'Malformed calorie entry for {food} in calories file')
 
-def lookup_weight(name, date):
+def funcion2lookupWeight(name, date):
     table = table_of_file(os.path.join(name, 'weight.csv'))
     vs = table[date]
     if vs is None:
@@ -87,8 +87,8 @@ def weighed(name, weight):
         w = csv.writer(f)
         if is_new: w.writerow(['Date', 'Weight'])
         w.writerow([date_today(), weight]) 
-        # print('Date,Weight', file=f)
-        # print(f'{date_today()},{weight}', file=f)
+        print('Date,Weight', file=f)
+        print(f'{date_today()},{weight}', file=f)
 
 arg = sys.argv
 
@@ -124,3 +124,4 @@ if len(arg) > 1:
             weighed(arg[2], arg[3])
     else:
         print('Command not understood')
+        
