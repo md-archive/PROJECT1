@@ -1,5 +1,6 @@
 # !/usr/bin/python3
 # coding: utf-8
+from asyncio.windows_events import NULL
 import random
 
 # Reglas del juego
@@ -31,7 +32,9 @@ def print_board(b):
         if n == 2 or n == 5: 
             print('') 
 
-
+def instructions():
+    print('Board is numbered\n012\n345\n678\n')
+    
 def full(b):
     return '_' not in b
 
@@ -120,7 +123,7 @@ def tactic_block(b):
 
 
 def human_move(pl, board):
-    n_input = input('Position 0..8? ')
+    n_input = input('\nPosition 0..8? ')
     #print(pl)
     if n_input.isdigit():
         n= int(n_input)
@@ -156,7 +159,7 @@ def tactic_play_opposite_corner(b):
         return try_to_take(b, 0)
 
 def computer_move(b):
-    print('Computer has played:')
+    print('\nComputer has played:')
     if tactic_win(b):
         print('Used tactic_win')
         return
@@ -186,15 +189,15 @@ def play(human_goes_first):
         print('You go first...')
         print_board(board)
     else:
-        print('Computer goes first...')
+        print('\nComputer goes first...')
     while not (full(board) or wins('X', board) or wins('0', board)):
         if human_goes_first:
-            human_move(board)
+            human_move(pl, board)
         else:
             computer_move (board)
         human_goes_first = not human_goes_first
         print_board(board)
-    print('Game over. Result:')
+    print('\nGame over. Result:')
     if wins('0', board):
         print('You win!')
     elif wins('X', board):
@@ -209,51 +212,35 @@ def play(human_goes_first):
 #random_game_1()
 
 ## Dos perosnas
-print("####################") 
-print("Posiciones:")
-print("####################") 
-print("012")
-print("345")
-print("678")
-print("####################") 
-
-while not (full(b) or wins('X', b) or wins('0', b)):
-        print_board(b)
-        print("\n--------------------") 
-        human_move(pl, b)
-        if pl == '0': pl ='X'
-        else: pl = '0'
-print_board(b)
-print("\n--------------------") 
-print('Game over. Result:')
-if wins('0', b):
-    print('0 wins!')
-elif wins('X', b):
-    print('X wins!')
-else:
-    print('Any!')
-    
+#print('Board is numbered\n012\n345\n678\n')
 
 
-#p = random_play(pl, b)
-#while wins(p, b) != True:
+#while not (full(b) or wins('X', b) or wins('0', b)):
+#        print_board(b)
+#        print("\n--------------------") 
+#        human_move(pl, b)
+#        if pl == '0': pl ='X'
+#        else: pl = '0'
+#print_board(b)
+#print("\n--------------------") 
+#print('Game over. Result:')
+#if wins('0', b):
+#    print('0 wins!')
+#elif wins('X', b):
+#    print('X wins!')
+#else:
+#    print('Any!')
 
-#    play(human_goes_first)
-    #human_move(2, b)
-    #random_play(pl, b)
 
-"""
-#Jugada_aleatoria(player)
+# Maquina persona
+quien = NULL
+print("Random player")
 
-#while final != true:
-    #num_aleatorio(0,8)
-    #check_position(num_aleatorio, empty)
+first = print(random.randint(1,2))
 
-    #if (empty == true)
-        #write_pos(numero, player)
+if first == int(1) :
+   quien == True
 
-    #check_won(b, won, player )
-
-    #if (won ==true)
-        #final = true
-"""
+if first == int(2):
+   quien == False
+play(quien)
