@@ -231,7 +231,7 @@ def play(human_goes_first):
 #else:
 #    print('Any!')
 
-
+ 
 # Maquina persona
 quien = NULL
 print("Random player")
