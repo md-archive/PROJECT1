@@ -37,10 +37,21 @@ def list_foods():
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname, 'calories.txt')
     for llaves, vs in table_of_file(filename).items():
+        for ch in ["{","'",":"]:
+            if ch in llaves:
+                llaves = llaves.replace(ch,"")
+        # x = llaves.replace("{","")
+        # y = llaves.replace("'","")
+        # z = llaves.replace(":","")
+        # full_key = x + y + z
         # claus
         print(llaves, end=' ')
         # valors
-        for valores in vs: print(valores, end=' ')
+        for valores in vs: 
+            for ch in ["[","'","]",",","}"]:
+                if ch in valores:
+                    valores = valores.replace(ch,"")
+            print(valores, end=' ')
         print('')
 
 def lookup_calories(food):
