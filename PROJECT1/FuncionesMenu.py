@@ -1,7 +1,7 @@
 from Ejercicio1 import *
-from Ejercicio2 import *
+#from Ejercicio2 import *
 #from Ejercicio3 import *
-from Ejercicio4 import *
+#from Ejercicio4 import *
 #from Ejercicio4 import *
 
 #Opciones Menú
@@ -84,7 +84,6 @@ def submenuEjercicio1():
     generar_menu(opciones, 'b')
 
 #Funciones Submenús Ejercicio 2
-
 def submenuEjercicio2():
     opciones = {
         '01': ('List Weights', list_weights),
@@ -126,6 +125,7 @@ def submenuEjercicio4():
     }
 
     generar_menu(opciones, 'b')
+    
 '''
 def funcion2listWeights():
     print('Has elegido el Ejercicio 2 List Weights')
