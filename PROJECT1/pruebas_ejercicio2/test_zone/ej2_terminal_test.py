@@ -57,8 +57,29 @@ def list_foods():
 def lookup_calories(food):
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname, 'calories.txt')
-    table = table_of_file(filename)
-    vs = table[food]
+    # table = table_of_file(filename)
+    #
+    for llaves, vs in table_of_file(filename).items():
+        for ch in ["{","'",":"]:
+            if ch in llaves:
+                llaves = llaves.replace(ch,"")
+                if llaves == food:
+                    print(llaves, end=' ')
+                    for valores in vs: 
+                        for ch in ["[","'","]",",","}"]:
+                            if ch in valores:
+                                valores = valores.replace(ch,"")
+                        print(valores, end=' ')
+        # x = llaves.replace("{","")
+        # y = llaves.replace("'","")
+        # z = llaves.replace(":","")
+        # full_key = x + y + z
+        # claus
+ 
+        # valors
+        
+    
+    #vs = table[food]
     if vs is None:
         print(f'Food {food} not found')
     else:
