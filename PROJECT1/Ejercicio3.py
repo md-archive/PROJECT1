@@ -231,16 +231,31 @@ def play(human_goes_first):
 #else:
 #    print('Any!')
 
- 
-# Maquina persona
+
+## Maquina y persona InicioAleatorio
+#quien = NULL
+#print("Random player")
+
+#first = print(random.randint(1,2))
+
+#if first == int(1) :
+#   quien == True
+#else:
+#    quien == False
+
+
+
+## Maquina y persona InicioEscogido
+quienjuega = NULL
 quien = NULL
-print("Random player")
+while (quien != 1 or quien != 2):
+    quien = input('\nChoose Player PLAYER(1) or PC(2)? ')
 
-first = print(random.randint(1,2))
 
-if first == int(1) :
-   quien == True
+if quien == int(1) :
+   quienjuega == True
 
-if first == int(2):
-   quien == False
-play(quien)
+if quien == int(2):
+   quienjuega == False
+play(quienjuega)
+
