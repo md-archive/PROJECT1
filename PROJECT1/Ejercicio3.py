@@ -29,11 +29,15 @@ pl ='0'
 def print_board(b):
     for n, x in enumerate(b):
         print(x, end='')
-        if n == 2 or n == 5: 
-            print('') 
+        if n == 2: 
+            print('  012')
+        elif n == 5:
+            print('  345')
+        elif n == 8:
+            print('  678')
 
 def instructions():
-    print('Board is numbered\n012\n345\n678\n')
+    print('Board is numbered\n012\n345\n678')
     
 def full(b):
     return '_' not in b
@@ -183,7 +187,7 @@ def computer_move(b):
 # Question 7
 
 def play(human_goes_first):
-    print('Board is numbered\n012\n345\n678\n')
+    print('Board is numbered\n012\n345\n678')
     board = emptyboard. copy()
     if human_goes_first:
         print('You go first...')
@@ -231,16 +235,31 @@ def play(human_goes_first):
 #else:
 #    print('Any!')
 
- 
-# Maquina persona
+
+## Maquina y persona InicioAleatorio
+#quien = NULL
+#print("Random player")
+
+#first = random.randint(1,2)
+
+#if first == int(1) :
+#   quien == True
+#else:
+#    quien == False
+#play(quien)
+
+
+## Maquina y persona InicioEscogido
+quienjuega = NULL
 quien = NULL
-print("Random player")
+opciones = ('1', '2')
+while (quien not in opciones ):
+    quien = input('\nChoose Player PLAYER(1) or PC(2)? ')
 
-first = print(random.randint(1,2))
+if quien == '1' :
+   quienjuega == True
 
-if first == int(1) :
-   quien == True
+if quien == '2' :
+   quienjuega == False
+play(quienjuega)
 
-if first == int(2):
-   quien == False
-play(quien)
