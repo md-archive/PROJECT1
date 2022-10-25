@@ -37,7 +37,7 @@ def print_board(b):
             print('  678')
 
 def instructions():
-    print('Board is numbered\n012\n345\n678\n')
+    print('Board is numbered\n012\n345\n678')
     
 def full(b):
     return '_' not in b
@@ -163,7 +163,7 @@ def tactic_play_opposite_corner(b):
         return try_to_take(b, 0)
 
 def computer_move(b):
-    print('Computer has played:')
+    print('\nComputer has played:')
     if tactic_win(b):
         print('Used tactic_win')
         return
@@ -187,7 +187,7 @@ def computer_move(b):
 # Question 7
 
 def play(human_goes_first):
-    print('Board is numbered\n012\n345\n678\n')
+    print('Board is numbered\n012\n345\n678')
     board = emptyboard. copy()
     if human_goes_first:
         print('You go first...')
