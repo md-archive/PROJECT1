@@ -248,14 +248,14 @@ def play(human_goes_first):
 ## Maquina y persona InicioEscogido
 quienjuega = NULL
 quien = NULL
-while (quien != 1 or quien != 2):
+opciones = ('1', '2')
+while (quien not in opciones ):
     quien = input('\nChoose Player PLAYER(1) or PC(2)? ')
 
-
-if quien == int(1) :
+if quien == '1' :
    quienjuega == True
 
-if quien == int(2):
+if quien == '2' :
    quienjuega == False
 play(quienjuega)
 
