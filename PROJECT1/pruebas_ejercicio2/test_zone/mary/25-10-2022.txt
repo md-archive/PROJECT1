@@ -1,0 +1,4 @@
+Food selected : Peas 
+ Current weight : 80
+Food selected : Peas 
+ Current food weight : 100g

@@ -4,8 +4,8 @@ import os
 import csv
 
 def table_of_file(filename):
-    dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, 'calories.txt')
+    # dirname = os.path.dirname(__file__)
+    # filename = os.path.join(dirname, 'calories.txt')
     with open(filename) as row:
         table = {}
         for cursor in row.readlines():
@@ -14,6 +14,15 @@ def table_of_file(filename):
             values = fields[1:]
             table[key] = values
         return table
+
+# def table_of_file(filename):
+#     with open(filename) as c:
+#         r = csv.reader(c)
+#         next(r)
+#         table = {}
+#         for row in r:
+#             table[row[0]] = row[1:]
+#         return table 
 
 def list_eaten(name,date):
     dirname = os.path.dirname(__file__)
@@ -93,6 +102,7 @@ def lookup_calories(food):
 def lookup_weight(name, date):
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname,name, 'weight.txt')
+
     table = table_of_file(filename)
     vs = table[date]
     if vs is None:
@@ -102,11 +112,19 @@ def lookup_weight(name, date):
 
 def total_date(name, date):
     dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname,name, 'calories.txt')
+    filename = os.path.join(dirname, 'calories.txt')
     calories = table_of_file(filename)
     table = table_of_file(os.path.join(filename, name, date) + '.txt')
     total = 0
     for key, vs in table.items():
+        for ch in ["{","'",":"]:
+            if ch in key:
+                key = key.replace(ch,"")
+        for valores in vs: 
+            for ch in ["[","'","]",",","}"]:
+                if ch in valores:
+                    valores = valores.replace(ch,"")
+            print(valores, end=' ')
         weight_and_calories = calories[key]
         reference_weight = int(weight_and_calories[0])
         reference_calories = int(weight_and_calories[0])
@@ -130,15 +148,19 @@ def new_user(name):
 def eaten(name, food, food_weight):
     dirname = os.path.dirname(__file__)
     filename = (os.path.join(dirname,name))
+    is_new = not os.path.exists(filename)
     with open(os.path.join(filename, date_today()) + '.txt', 'a') as f:
-        print(f'Food selected : {food} \n Current weight : {food_weight}', file=f)
+        if is_new: print('Food,Weight', file=f)
+        print(f'Food selected : {food} \n Current food weight : {food_weight}g' , file=f)
 #
 
 def weighed(name, person_weight):
     dirname = os.path.dirname(__file__)
-    filename = (os.path.join(dirname,name))
-    with open(os.path.join(filename, 'weight.txt'), 'a') as f:
-        print(f'Date registered : {date_today()} \n Current weight : {person_weight}', file=f)
+    filename = (os.path.join(dirname,name,'weight.txt'))
+    is_new = not os.path.exists(filename)
+    with open(filename, 'a') as f:
+        if is_new: print('Date,Weight', file=f)
+        print(f"Date registered : {date_today()} \n Current {name}'s weight : {person_weight} Kg", file=f)
 
 def date_today():
     fecha = datetime.datetime.now()
