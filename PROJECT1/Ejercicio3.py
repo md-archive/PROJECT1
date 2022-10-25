@@ -236,13 +236,13 @@ def play(human_goes_first):
 #quien = NULL
 #print("Random player")
 
-#first = print(random.randint(1,2))
+#first = random.randint(1,2)
 
 #if first == int(1) :
 #   quien == True
 #else:
 #    quien == False
-
+#play(quien)
 
 
 ## Maquina y persona InicioEscogido
