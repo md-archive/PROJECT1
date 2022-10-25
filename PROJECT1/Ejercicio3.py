@@ -163,7 +163,7 @@ def tactic_play_opposite_corner(b):
         return try_to_take(b, 0)
 
 def computer_move(b):
-    print('\nComputer has played:')
+    print('Computer has played:')
     if tactic_win(b):
         print('Used tactic_win')
         return
