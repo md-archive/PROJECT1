@@ -29,8 +29,12 @@ pl ='0'
 def print_board(b):
     for n, x in enumerate(b):
         print(x, end='')
-        if n == 2 or n == 5: 
-            print('') 
+        if n == 2: 
+            print('  012')
+        elif n == 5:
+            print('  345')
+        elif n == 8:
+            print('  678')
 
 def instructions():
     print('Board is numbered\n012\n345\n678\n')
