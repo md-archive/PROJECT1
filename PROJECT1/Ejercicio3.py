@@ -25,7 +25,7 @@ lines = [h1, h2, h3, v1, v2, v3, d1, d2]
 NumeroRandom = random.randint(0, 8)
 intersecting_lines = [(h1, v1, 0), (h1, v2, 1), (h1, v3, 2), (h2, v1, 3), (h2, v2, 4), (h2, v3, 5), (h3, v1, 6), (h3, v2, 7), (h3, v3, 8), (d1, h1, 0), (d1, h2, 4), (d1, h3, 8), (d1, v1, 0), (d1, v2, 4), (d1, v3, 8), (d2, h1, 2), (d2, h2, 4), (d2, h3, 6), (d2, v1, 2), (d2, v2, 4), (d2, v3, 6), (d1, d2, 4)]
 pl ='0'
-
+pl2 ='X'
 def print_board(b):
     for n, x in enumerate(b):
         print(x, end='')
@@ -186,7 +186,8 @@ def computer_move(b):
 
 # Question 7
 
-def play(human_goes_first):
+
+def play(human_goes_first, estonto):
     print('Board is numbered\n012\n345\n678')
     board = emptyboard. copy()
     if human_goes_first:
@@ -198,7 +199,10 @@ def play(human_goes_first):
         if human_goes_first:
             human_move(pl, board)
         else:
-            computer_move (board)
+            if(estonto):
+                random_play (pl2, board)
+            else:
+                computer_move (board)
         human_goes_first = not human_goes_first
         print_board(board)
     print('\nGame over. Result:')
@@ -252,14 +256,25 @@ def play(human_goes_first):
 ## Maquina y persona InicioEscogido
 quienjuega = NULL
 quien = NULL
+dificultad = NULL
 opciones = ('1', '2')
-while (quien not in opciones ):
+while (quien not in opciones):
     quien = input('\nChoose Player PLAYER(1) or PC(2)? ')
 
 if quien == '1' :
-   quienjuega == True
+   quienjuega = True
 
 if quien == '2' :
-   quienjuega == False
-play(quienjuega)
+   quienjuega = False
+
+while (dificultad not in opciones ):
+    dificultad = input('\nChoose Machine TONTO(1) or LISTO(2)? ')
+
+if dificultad == '1' :
+   estonto = True
+
+if dificultad == '2' :
+   estonto = False
+
+play(quienjuega, estonto)
 
