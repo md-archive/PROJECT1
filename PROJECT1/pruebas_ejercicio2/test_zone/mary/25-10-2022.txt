@@ -1,4 +1,4 @@
-Food selected : Peas 
- Current weight : 80
-Food selected : Peas 
+Food from list : PPeas 
+ Current food weight : 80
+Food from list : PPeas 
  Current food weight : 100g
