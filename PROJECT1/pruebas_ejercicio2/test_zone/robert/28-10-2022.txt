@@ -1,0 +1,2 @@
+Food selected : peas 
+ Current food weight : 900g

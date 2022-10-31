@@ -28,7 +28,7 @@ def list_eaten(name,date):
     dirname = os.path.dirname(__file__)
     filename = (os.path.join(dirname,name, date + '.txt'))
     for llaves, vs in table_of_file(filename).items():
-        print(f'{llaves} {vs[0]}')
+        print(f'{llaves} {vs[0]}{vs[1]} {vs[2]} {vs[3]}')
 
 def list_weights(name):
     dirname = os.path.dirname(__file__)
