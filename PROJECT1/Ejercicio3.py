@@ -34,7 +34,7 @@ def print_board(b):
         elif n == 5:
             print('  345')
         elif n == 8:
-            print('  678')
+            print('  678\n')
 
 def instructions():
     print('Board is numbered\n012\n345\n678')
@@ -254,27 +254,20 @@ def play(human_goes_first, estonto):
 
 
 ## Maquina y persona InicioEscogido
-quienjuega = NULL
+quienjuega = False
+estonto = False
 quien = NULL
 dificultad = NULL
 opciones = ('1', '2')
-while (quien not in opciones):
+while (quien not in opciones and dificultad not in opciones):
     quien = input('\nChoose Player PLAYER(1) or PC(2)? ')
+    dificultad = input('\nChoose Machine TONTO(1) or LISTO(2)? ')
 
 if quien == '1' :
    quienjuega = True
 
-if quien == '2' :
-   quienjuega = False
-
-while (dificultad not in opciones ):
-    dificultad = input('\nChoose Machine TONTO(1) or LISTO(2)? ')
-
 if dificultad == '1' :
    estonto = True
-
-if dificultad == '2' :
-   estonto = False
 
 play(quienjuega, estonto)
 
