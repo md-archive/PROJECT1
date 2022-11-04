@@ -1,6 +1,5 @@
 # !/usr/bin/python3
 # coding: utf-8
-from asyncio.windows_events import NULL
 import random
 
 # Reglas del juego
@@ -32,6 +31,30 @@ intersecting_lines = [(h1, v1, 0), (h1, v2, 1), (h1, v3, 2), (h2, v1, 3),
                       (d2, v3, 6), (d1, d2, 4)]
 pl = '0'
 pl2 = 'X'
+
+tree = ('?',
+        ('E',
+         ('I',
+          ('S',
+           ('H', '5', '4'),
+           ('V', '?', '3')),
+          ('U',
+           'F',
+           ('?', '?', '2'))),
+            ('A',
+             ('R', 'L', '?'),
+             ('W', 'P',
+              ('J', '?', '1')))),
+        ('T',
+         ('N',
+          ('D',
+           ('B', '6', '?'), 'X'),
+          ('K', 'C', 'Y')),
+         ('M',
+          ('G',
+           ('Z', '7', '?'), 'Q'),
+          ('O',
+           ('?', '8', '?'), ('?', '9', '0')))))
 
 
 def print_board(b):
@@ -245,47 +268,180 @@ def play(human_goes_first, estonto):
     else:
         print('Draw!')
 
+# Question 9
+
+def swap_player(p):
+    if p == 'X':
+        return '0'
+    else:
+        return 'X'
+
+def next_boards(b, pl):
+    if wins('0', b) or wins('X', b) or full(b):
+        return (b, [])
+    bs = []
+    for i, e in enumerate(b):
+        if e == '_':
+            new_board = b.copy()
+            new_board[i] = pl
+            bs.append(new_board)
+    return (b, [next_boards(x, swap_player(pl)) for x in bs])
+
+def game_tree(pl):
+    return next_boards(emptyboard, pl)
+
+x_game_tree = game_tree('X')
+
+def sum_x_wins(t):
+    b, bs = t
+    ns = wins('X', b)
+    for board in bs:
+        ns += sum_x_wins(board)
+    return ns
+
+x_wins = sum_x_wins(x_game_tree)
+
+x_game_tree = game_tree('X')
+
+def sum_o_wins(t):
+    b, bs = t
+    ns = wins('0', b)
+    for board in bs:
+        ns += sum_o_wins(board)
+    return ns
+
+o_wins = sum_o_wins(x_game_tree)
+
+def drawn_games(t):
+    b, bs = t
+    ns = wins('X', b) and not wins('0', b) and full(b)
+    for board in bs:
+        ns += drawn_games(board)
+    return ns
+
+drawn = drawn_games(x_game_tree)
+
+def num_games(t):
+    b, bs = t
+    ns = wins('0', b) or wins('X', b) or full(b)
+    for board in bs:
+        ns += num_games(board)
+    return ns
+
+
+games = num_games(x_game_tree)
+
+# Question 10
+def sum_game_tree(f, t):
+    b, bs = t
+    ns = f(b)
+    for sb in bs:
+        ns += sum_game_tree(f, sb)
+    return ns
+
+def f(b): return wins('X', b)
+
+xwins = sum_game_tree(f, x_game_tree)
+
+def f(b): return wins('0', b)
+
+o_wins = sum_game_tree(f, x_game_tree)
+
+def f(b): return not wins('X', b) and not wins('0', b) and full(b)
+
+draw = sum_game_tree(f, x_game_tree)
+
+def f(b): return wins('X', b) or wins('0', b) or full(b)
+
+games = sum_game_tree(f, x_game_tree)
+
+# Question 11
+
+def decode_morse(code):
+    t = tree
+    for c in code:
+        if c == ' ':
+            pass
+        elif c == '.':
+            n, l, r = t
+            t = l
+        else:
+            n, l, r = t
+            t = r
+    if type(t) == tuple:
+        n, l, r = t
+        return n
+    else:
+        return t
+
+def split_string(string):
+    codes = []
+    spaces = 0
+    code = ''
+    for c in string:
+        if c == ' ':
+            if code != '' and spaces > 0:
+                codes.append(code)
+                code = ''
+            spaces = spaces + 1
+        else:
+            if spaces == 7:
+                codes.append(' ')
+            spaces = 0
+            code = code + c
+    if code != '':
+        codes.append(code)
+    return codes
+
+def decode_morse_string(string):
+    for code in split_string(string):
+        if code == ' ':
+            print(' ', end='')
+        else:
+            print(decode_morse(code), end='')
+    print('')
 
 # Maquina 2
-# random_game()
+'''random_game()'''
 # Maquina 1
-# random_game_1()
+'''random_game_1()'''
 
 # Dos perosnas
-# print('Board is numbered\n012\n345\n678\n')
-
-
-# while not (full(b) or wins('X', b) or wins('0', b)):
-#        print_board(b)
-#        print("\n--------------------")
-#        human_move(pl, b)
-#        if pl == '0': pl ='X'
-#        else: pl = '0'
-# print_board(b)
-# print("\n--------------------")
-# print('Game over. Result:')
-# if wins('0', b):
-#    print('0 wins!')
-# elif wins('X', b):
-#    print('X wins!')
-# else:
-#    print('Any!')
-
+'''
+print('Board is numbered\n012\n345\n678\n')
+while not (full(b) or wins('X', b) or wins('0', b)):
+       print_board(b)
+       print("\n--------------------")
+       human_move(pl, b)
+       if pl == '0': pl ='X'
+       else: pl = '0'
+print_board(b)
+print("\n--------------------")
+print('Game over. Result:')
+if wins('0', b):
+   print('0 wins!')
+elif wins('X', b):
+   print('X wins!')
+else:
+   print('Any!')
+'''
 
 # Maquina y persona InicioAleatorio
-# quien = NULL
-# print("Random player")
+'''
+quien = NULL
+print("Random player")
 
-# first = random.randint(1,2)
+first = random.randint(1,2)
 
-# if first == int(1) :
-#   quien == True
-# else:
-#    quien == False
-# play(quien)
-
+if first == int(1) :
+  quien == True
+else:
+   quien == False
+play(quien)
+'''
 
 # Maquina y persona InicioEscogido
+'''
 quienjuega = False
 estonto = False
 quien = NULL
@@ -303,3 +459,4 @@ if dificultad == '1':
     estonto = True
 
 play(quienjuega, estonto)
+'''
