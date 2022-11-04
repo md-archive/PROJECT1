@@ -6,14 +6,19 @@ import csv
 def table_of_file(filename):
     # dirname = os.path.dirname(__file__)
     # filename = os.path.join(dirname, 'calories.txt')
-    with open(filename) as row:
-        table = {}
-        for cursor in row.readlines():
-            fields = cursor.split()
-            key = fields[0]
-            values = fields[1:]
-            table[key] = values
-        return table
+    try:            # %%% Si el usuario introduce una fecha no valida %%%
+        with open(filename) as row:
+            table = {}
+            for cursor in row.readlines():
+                fields = cursor.split()
+                key = fields[0]
+                values = fields[1:]
+                table[key] = values
+                #print(f'{key[0:]} {values[0]} {values[1]} {values[2]} {values[3]}')
+                print(f'{key[0:]} {values[0]} {values[1]} {values[2]}')
+            return table
+    except:
+        print("ERROR!! date from name not registered.")
 
 # def table_of_file(filename):
 #     with open(filename) as c:
@@ -27,14 +32,15 @@ def table_of_file(filename):
 def list_eaten(name,date):
     dirname = os.path.dirname(__file__)
     filename = (os.path.join(dirname,name, date + '.txt'))
-    for llaves, vs in table_of_file(filename).items():
-        print(f'{llaves} {vs[0]}{vs[1]} {vs[2]} {vs[3]}')
+    table_of_file(filename)
+
 
 def list_weights(name):
     dirname = os.path.dirname(__file__)
     filename = (os.path.join(dirname,name,'weight.txt'))
-    for cursor, vs in table_of_file(os.path.join(filename)).items():
-        print(f'{cursor} {vs[0]}')
+    table_of_file(filename)
+    # for cursor, vs in table_of_file(os.path.join(filename)).items():
+    #     print(f'{cursor} {vs[0]}')
 
 def list_dates(name):
     dirname = os.path.dirname(__file__)

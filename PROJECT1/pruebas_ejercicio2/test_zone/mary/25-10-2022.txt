@@ -1,4 +1,4 @@
-Food from list : PPeas 
- Current food weight : 80
-Food from list : PPeas 
- Current food weight : 100g
+Food from list : Carrots 
+ Current food weight : 80g
+ Food from list : Peas 
+ Current food weight : 50g
