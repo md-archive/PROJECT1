@@ -270,13 +270,11 @@ def play(human_goes_first, estonto):
 
 # Question 9
 
-
 def swap_player(p):
     if p == 'X':
         return '0'
     else:
         return 'X'
-
 
 def next_boards(b, pl):
     if wins('0', b) or wins('X', b) or full(b):
@@ -289,13 +287,10 @@ def next_boards(b, pl):
             bs.append(new_board)
     return (b, [next_boards(x, swap_player(pl)) for x in bs])
 
-
 def game_tree(pl):
     return next_boards(emptyboard, pl)
 
-
 x_game_tree = game_tree('X')
-
 
 def sum_x_wins(t):
     b, bs = t
@@ -304,12 +299,9 @@ def sum_x_wins(t):
         ns += sum_x_wins(board)
     return ns
 
-
 x_wins = sum_x_wins(x_game_tree)
 
-
 x_game_tree = game_tree('X')
-
 
 def sum_o_wins(t):
     b, bs = t
@@ -318,9 +310,7 @@ def sum_o_wins(t):
         ns += sum_o_wins(board)
     return ns
 
-
 o_wins = sum_o_wins(x_game_tree)
-
 
 def drawn_games(t):
     b, bs = t
@@ -329,9 +319,7 @@ def drawn_games(t):
         ns += drawn_games(board)
     return ns
 
-
 drawn = drawn_games(x_game_tree)
-
 
 def num_games(t):
     b, bs = t
@@ -343,7 +331,6 @@ def num_games(t):
 
 games = num_games(x_game_tree)
 
-
 # Question 10
 def sum_game_tree(f, t):
     b, bs = t
@@ -352,30 +339,21 @@ def sum_game_tree(f, t):
         ns += sum_game_tree(f, sb)
     return ns
 
-
 def f(b): return wins('X', b)
-
 
 xwins = sum_game_tree(f, x_game_tree)
 
-
 def f(b): return wins('0', b)
-
 
 o_wins = sum_game_tree(f, x_game_tree)
 
-
 def f(b): return not wins('X', b) and not wins('0', b) and full(b)
-
 
 draw = sum_game_tree(f, x_game_tree)
 
-
 def f(b): return wins('X', b) or wins('0', b) or full(b)
 
-
 games = sum_game_tree(f, x_game_tree)
-
 
 # Question 11
 
@@ -396,7 +374,6 @@ def decode_morse(code):
     else:
         return t
 
-
 def split_string(string):
     codes = []
     spaces = 0
@@ -416,7 +393,6 @@ def split_string(string):
         codes.append(code)
     return codes
 
-
 def decode_morse_string(string):
     for code in split_string(string):
         if code == ' ':
@@ -424,7 +400,6 @@ def decode_morse_string(string):
         else:
             print(decode_morse(code), end='')
     print('')
-
 
 # Maquina 2
 '''random_game()'''
@@ -450,7 +425,6 @@ elif wins('X', b):
 else:
    print('Any!')
 '''
-
 
 # Maquina y persona InicioAleatorio
 '''
