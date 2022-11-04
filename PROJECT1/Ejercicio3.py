@@ -268,6 +268,38 @@ def play(human_goes_first, estonto):
         print('Draw!')
 
 # Question 9
+def swap_player(p):
+    if p == 'X': return '0'
+    else: return 'X'
+
+def next_boards(b, pl):
+    if wins('0', b) or wins('X', b) or full(b):
+        return (b, [])
+    bs = []
+    for i, e in enumerate(b):
+        if e== '_':
+            new_board = b.copy()
+            new_board[i] = pl
+            bs.append(new_board)
+    return (b, [next_boards(x, swap_player(pl)) for x in bs])
+
+def game_tree(pl):
+    return next_boards(emptyboard, pl)
+
+x_game_tree = game_tree('X')
+
+def sum_x_wins(t):
+    b, bs =t
+    ns = wins('X', b)
+    for board in bs:
+        ns += sum_x_wins(board)
+    return ns
+x_wins = sum_x_wins(x_game_tree)
+
+ 
+
+x_game_tree = game_tree('X')
+
 def sum_o_wins(t):
     b, bs =t
     ns = wins('0', b)
@@ -303,7 +335,6 @@ def sum_game_tree(f, t):
         ns += sum_game_tree(f, sb)
     return ns
 
-x_game_tree = game_tree('X')
 
 def f(b): return wins('X', b)
 xwins = sum_game_tree(f, x_game_tree)
