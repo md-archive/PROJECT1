@@ -1,5 +1,6 @@
 # !/usr/bin/python3
 # coding: utf-8
+from asyncio.windows_events import NULL
 import random
 
 # Reglas del juego
@@ -33,29 +34,28 @@ pl = '0'
 pl2 = 'X'
 
 tree = ('?',
-        ('E',
-         ('I',
-          ('S',
-           ('H', '5', '4'),
-           ('V', '?', '3')),
-          ('U',
-           'F',
-           ('?', '?', '2'))),
-            ('A',
-             ('R', 'L', '?'),
-             ('W', 'P',
-              ('J', '?', '1')))),
-        ('T',
-         ('N',
-          ('D',
-           ('B', '6', '?'), 'X'),
-          ('K', 'C', 'Y')),
-         ('M',
-          ('G',
-           ('Z', '7', '?'), 'Q'),
-          ('O',
-           ('?', '8', '?'), ('?', '9', '0')))))
-
+           ('E',
+               ('I',
+                   ('S',
+                       ('H', '5', '4'),
+                       ('V', '?', '3')),
+               ('U',
+                   'F',
+                       ('?', '?', '2'))),
+                ('A',
+                    ('R', 'L', '?'),
+                    ('W', 'P',
+                        ('J', '?', '1')))),
+            ('T',
+                ('N',
+                    ('D',
+                        ('B', '6', '?'), 'X'),
+                    ('K', 'C', 'Y')),
+                ('M',
+                    ('G',
+                        ('Z', '7', '?'), 'Q'),
+                    ('O',
+                        ('?', '8', '?'), ('?', '9', '0')))))
 
 def print_board(b):
     for n, x in enumerate(b):
@@ -241,7 +241,6 @@ def computer_move(b):
 
 # Question 7
 
-
 def play(human_goes_first, estonto):
     print('Board is numbered\n012\n345\n678')
     board = emptyboard. copy()
@@ -269,12 +268,9 @@ def play(human_goes_first, estonto):
         print('Draw!')
 
 # Question 9
-
 def swap_player(p):
-    if p == 'X':
-        return '0'
-    else:
-        return 'X'
+    if p == 'X': return '0'
+    else: return 'X'
 
 def next_boards(b, pl):
     if wins('0', b) or wins('X', b) or full(b):
@@ -293,7 +289,7 @@ def game_tree(pl):
 x_game_tree = game_tree('X')
 
 def sum_x_wins(t):
-    b, bs = t
+    b, bs =t
     ns = wins('X', b)
     for board in bs:
         ns += sum_x_wins(board)
@@ -301,10 +297,8 @@ def sum_x_wins(t):
 
 x_wins = sum_x_wins(x_game_tree)
 
-x_game_tree = game_tree('X')
-
 def sum_o_wins(t):
-    b, bs = t
+    b, bs =t
     ns = wins('0', b)
     for board in bs:
         ns += sum_o_wins(board)
@@ -312,24 +306,24 @@ def sum_o_wins(t):
 
 o_wins = sum_o_wins(x_game_tree)
 
-def drawn_games(t):
-    b, bs = t
-    ns = wins('X', b) and not wins('0', b) and full(b)
+def drawn_games (t):
+    b, bs =t
+    ns = wins('X', b) and not wins('0', b) and full (b)
     for board in bs:
-        ns += drawn_games(board)
+        ns += drawn_games (board)
     return ns
 
 drawn = drawn_games(x_game_tree)
 
 def num_games(t):
-    b, bs = t
+    b, bs =t
     ns = wins('0', b) or wins('X', b) or full(b)
     for board in bs:
         ns += num_games(board)
     return ns
 
-
 games = num_games(x_game_tree)
+
 
 # Question 10
 def sum_game_tree(f, t):
@@ -339,21 +333,19 @@ def sum_game_tree(f, t):
         ns += sum_game_tree(f, sb)
     return ns
 
-def f(b): return wins('X', b)
 
+def f(b): return wins('X', b)
 xwins = sum_game_tree(f, x_game_tree)
 
 def f(b): return wins('0', b)
-
 o_wins = sum_game_tree(f, x_game_tree)
 
-def f(b): return not wins('X', b) and not wins('0', b) and full(b)
-
+def f(b): return not wins('X', b) and not wins('0', b) and full (b)
 draw = sum_game_tree(f, x_game_tree)
 
 def f(b): return wins('X', b) or wins('0', b) or full(b)
-
 games = sum_game_tree(f, x_game_tree)
+
 
 # Question 11
 
@@ -366,8 +358,8 @@ def decode_morse(code):
             n, l, r = t
             t = l
         else:
-            n, l, r = t
-            t = r
+            n, l, r =t
+            t= r
     if type(t) == tuple:
         n, l, r = t
         return n
@@ -385,25 +377,23 @@ def split_string(string):
                 code = ''
             spaces = spaces + 1
         else:
-            if spaces == 7:
-                codes.append(' ')
+            if spaces == 7: codes.append(' ')
             spaces = 0
             code = code + c
-    if code != '':
-        codes.append(code)
+    if code != '': codes.append(code)
     return codes
 
 def decode_morse_string(string):
     for code in split_string(string):
-        if code == ' ':
-            print(' ', end='')
-        else:
-            print(decode_morse(code), end='')
+        if code == ' ': print(' ', end='')
+        else: print(decode_morse(code), end='')
     print('')
+ 
+
 
 # Maquina 2
 '''random_game()'''
-# Maquina 1
+#Maquina 1
 '''random_game_1()'''
 
 # Dos perosnas
@@ -425,6 +415,7 @@ elif wins('X', b):
 else:
    print('Any!')
 '''
+
 
 # Maquina y persona InicioAleatorio
 '''
@@ -459,4 +450,19 @@ if dificultad == '1':
     estonto = True
 
 play(quienjuega, estonto)
+'''
+
+# Calculo 
+print(drawn)
+
+
+'''
+x_game_tree
+x_wins
+drawn
+games
+xwins
+o_wins
+draw
+games
 '''
