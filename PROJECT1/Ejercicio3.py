@@ -453,16 +453,16 @@ play(quienjuega, estonto)
 '''
 
 # Calculo 
-print(drawn)
+print(x_wins)
 
 
 '''
-x_game_tree
-x_wins
-drawn
-games
-xwins
-o_wins
-draw
-games
+print(x_game_tree)
+print(x_wins)
+print(drawn)
+print(games)
+print(xwins)
+print(o_wins)
+print(draw)
+print(games)
 '''
