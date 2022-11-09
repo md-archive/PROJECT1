@@ -1,6 +1,5 @@
 # !/usr/bin/python3
 # coding: utf-8
-from asyncio.windows_events import NULL
 import random
 
 # Reglas del juego
@@ -452,10 +451,41 @@ if dificultad == '1':
 play(quienjuega, estonto)
 '''
 
-# Calculo 
+# Question 9
+print("Calculando las posibilidades de ganar de 'O'...")
+print(o_wins)
+print(draw)
+print(games)
+
+# Question 10
+print("Temp") #ValueError: too many values to unpack (expected 2)
+print(sum_game_tree(o_wins, tree))
+
+# Question 11
+
+'''
+# Calculo
+print("Calculando las posibilidades de ganar de 'X'...")
 print(x_wins)
 
+print(tree)
+'''
 
+# Temporal
+'''
+print(tree)
+contarPalabras = 0
+print("miau")
+arrayPalabras = ""
+for palabra in x_game_tree:
+    contarPalabras += 1
+    arrayPalabras = arrayPalabras.append(palabra)
+    if contarPalabras == 3:
+        print(arrayPalabras)
+    else:
+        contarPalabras = 0
+print(tree)
+'''
 '''
 print(x_game_tree)
 print(x_wins)
