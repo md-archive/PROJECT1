@@ -265,7 +265,7 @@ def play(human_goes_first, estonto):
         print('Computer wins!')
     else:
         print('Draw!')
-
+'''
 # Question 9
 def swap_player(p):
     if p == 'X': return '0'
@@ -344,7 +344,7 @@ draw = sum_game_tree(f, x_game_tree)
 
 def f(b): return wins('X', b) or wins('0', b) or full(b)
 games = sum_game_tree(f, x_game_tree)
-
+'''
 
 # Question 11
 
@@ -452,22 +452,66 @@ play(quienjuega, estonto)
 '''
 
 # Question 9, 10
-print("Calculando cuantas veces gana O..", o_wins)  # ¿En cuántos casos gana O?
-print("Calculando cuantas partidas acaban en empate..", draw)  # ¿Cuántas partidas terminan en empate?
-print("Calculando numero total de juegos..", games)  # Question 9 In how many cases does O win? How many games end in a draw? How many possible different games are there?
+# print("Calculando cuantas veces gana O..", o_wins)  # ¿En cuántos casos gana O?
+# print("Calculando cuantas partidas acaban en empate..", draw)  # ¿Cuántas partidas terminan en empate?
+# print("Calculando numero total de juegos..", games)  # Question 9 In how many cases does O win? How many games end in a draw? How many possible different games are there?
 
 # Question 11
 
-temporal = '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-'
+temporal = ". .-.. .-.. .- / -. --- / - . / .- -- .-"
 
-def convertTuple(tup):
-        # initialize an empty string
-    str = ''
-    for item in tup:
-        str = str + item
-    return str
-treemod = convertTuple(tree)
-print(decode_morse_string(treemod))
+
+def print_morse_letter(ll):
+    if ll == 'A': print('. -')
+    elif ll == 'C': print('- . . .')
+    elif ll == 'B': print('- . . .')
+    elif ll == 'D': print('- . . .')
+    elif ll == 'E': print('- . - .')
+    elif ll == 'F': print('.')
+    elif ll == 'G': print('. . - .')
+    elif ll == 'H': print('. . - .')
+    elif ll == 'I': print('. .')
+    elif ll == 'J': print('. - - -')
+    elif ll == 'K': print('- . -')
+    elif ll == 'L': print('. - . .')
+    elif ll == 'M': print('- -')
+    elif ll == 'N': print('- .')
+    elif ll == 'O': print('- - -')
+    elif ll == 'P': print('. - - .')
+    elif ll == 'Q': print('- -.  -')
+    elif ll == 'R': print('- . -')
+    elif ll == 'S': print('. . .')
+    elif ll == 'T': print('-')
+    elif ll == 'U': print('. . -')
+    elif ll == 'P': print('. - - .')
+    elif ll == 'Q': print('- -. -')
+    elif ll == 'R': print('- . -')
+    elif ll == 'S': print('. . .')
+    elif ll == 'T': print('-')
+    elif ll == 'U': print('. . -')
+    elif ll == 'V': print('. . . -')
+    elif ll == 'W': print('. - -')
+    elif ll == 'X': print('- . . -')
+    elif ll == 'Y': print('- . - -')
+    elif ll == 'Z': print('- - . .')
+    elif ll == '1': print('. - - - -')
+    elif ll == '2': print('. . - - -')
+    elif ll == '3': print('. . . - -')
+    elif ll == '4': print('. . . . -')
+    elif ll == '5': print('. . . . -')
+    elif ll == '6': print('- . . . .')
+    elif ll == '7': print('- - . . .')
+    elif ll == '8': print('- - - . .')
+    elif ll == '9': print('- - - - .')
+    elif ll == '0': print('- - - - -')
+    else: print('bad letter')
+
+
+temporal1 = '7'
+temporal2 = '- - . . .'
+print(print_morse_letter(temporal1))
+
+print(decode_morse_string(temporal2))
 
 '''
 # Calculo
