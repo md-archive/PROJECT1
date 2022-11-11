@@ -451,40 +451,29 @@ if dificultad == '1':
 play(quienjuega, estonto)
 '''
 
-# Question 9
-print("Calculando las posibilidades de ganar de 'O'...")
-print(o_wins)
-print(draw)
-print(games)
-
-# Question 10
-print("Temp") #ValueError: too many values to unpack (expected 2)
-print(sum_game_tree(o_wins, tree))
+# Question 9, 10
+print("Calculando cuantas veces gana O..", o_wins)  # ¿En cuántos casos gana O?
+print("Calculando cuantas partidas acaban en empate..", draw)  # ¿Cuántas partidas terminan en empate?
+print("Calculando numero total de juegos..", games)  # Question 9 In how many cases does O win? How many games end in a draw? How many possible different games are there?
 
 # Question 11
+
+temporal = '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-'
+
+def convertTuple(tup):
+        # initialize an empty string
+    str = ''
+    for item in tup:
+        str = str + item
+    return str
+treemod = convertTuple(tree)
+print(decode_morse_string(treemod))
 
 '''
 # Calculo
 print("Calculando las posibilidades de ganar de 'X'...")
 print(x_wins)
 
-print(tree)
-'''
-
-# Temporal
-'''
-print(tree)
-contarPalabras = 0
-print("miau")
-arrayPalabras = ""
-for palabra in x_game_tree:
-    contarPalabras += 1
-    arrayPalabras = arrayPalabras.append(palabra)
-    if contarPalabras == 3:
-        print(arrayPalabras)
-    else:
-        contarPalabras = 0
-print(tree)
 '''
 '''
 print(x_game_tree)
