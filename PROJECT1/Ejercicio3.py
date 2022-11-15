@@ -557,8 +557,13 @@ def print_morse_letter(ll):
 
 temporal1 = '7'
 temporal2 = '- - . . .'
-print(print_morse_letter(temporal1))
+# print(print_morse_letter(temporal1))
+juntar = ''
+for numero in temporal:
+    resultado = print_morse_letter(numero)
+    juntar = juntar + ",' " + resultado + "'"
 
+print(juntar[1:])
 print(decode_morse_string(temporal2))
 
 '''
