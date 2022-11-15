@@ -565,13 +565,13 @@ juntar = juntar[1:]
 print(juntar.replace(' ', '').replace(',', ' '))
 
 #CODE TO TEXT
-letra=''            
+texto=''            
 ejemplo_temporal = juntar.split(',')
 
-for i in ejemplo_temporal:
+for letra in ejemplo_temporal:
     
-    letra+=(decode_morse_string(i))
+    texto+=(decode_morse_string(letra))
     
-print(letra)
+print(texto)
 
 
