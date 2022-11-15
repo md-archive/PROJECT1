@@ -553,21 +553,18 @@ def print_morse_letter(ll):
 
 
 temporal = ['P','E','R','R','O']
-#CODE
+#TEXT TO CODE
 juntar = ''
 for numero in temporal:
     resultado = print_morse_letter(numero)
     
-    juntar = juntar + ",'" + resultado + "'"
+    juntar = juntar + "," + resultado + ""
 juntar = juntar[1:]
 print(juntar)
 
-#print(list(str((juntar[1:]))))
-print([char(juntar)])
-#TEXT
+#CODE TO TEXT
 letra=''            
-ejemplo_temporal = [juntar]
-print(ejemplo_temporal)
+ejemplo_temporal = juntar.split(',')
 
 for i in ejemplo_temporal:
     
@@ -582,16 +579,4 @@ print(letra)
 print("Calculando las posibilidades de ganar de 'X'...")
 print(x_wins)
 
-'''
-
-'''
-#TEXT
-letra=''
-ejemplo_temporal = ['. - - .','.','. - .','. - .','- - -']
-
-for i in ejemplo_temporal:
-    
-    letra+=(decode_morse_string(i))
-    
-print(letra)
 '''
