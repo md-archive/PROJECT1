@@ -1,4 +1,4 @@
 Food from list : Carrots 
  Current food weight : 80g
- Food from list : Peas 
+Food from list : Peas 
  Current food weight : 50g
