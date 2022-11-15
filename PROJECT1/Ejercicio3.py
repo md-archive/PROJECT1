@@ -462,49 +462,93 @@ temporal = ". .-.. .-.. .- / -. --- / - . / .- -- .-"
 
 
 def print_morse_letter(ll):
-    if ll == 'A': print('. -')
-    elif ll == 'C': print('- . . .')
-    elif ll == 'B': print('- . . .')
-    elif ll == 'D': print('- . . .')
-    elif ll == 'E': print('- . - .')
-    elif ll == 'F': print('.')
-    elif ll == 'G': print('. . - .')
-    elif ll == 'H': print('. . - .')
-    elif ll == 'I': print('. .')
-    elif ll == 'J': print('. - - -')
-    elif ll == 'K': print('- . -')
-    elif ll == 'L': print('. - . .')
-    elif ll == 'M': print('- -')
-    elif ll == 'N': print('- .')
-    elif ll == 'O': print('- - -')
-    elif ll == 'P': print('. - - .')
-    elif ll == 'Q': print('- -.  -')
-    elif ll == 'R': print('- . -')
-    elif ll == 'S': print('. . .')
-    elif ll == 'T': print('-')
-    elif ll == 'U': print('. . -')
-    elif ll == 'P': print('. - - .')
-    elif ll == 'Q': print('- -. -')
-    elif ll == 'R': print('- . -')
-    elif ll == 'S': print('. . .')
-    elif ll == 'T': print('-')
-    elif ll == 'U': print('. . -')
-    elif ll == 'V': print('. . . -')
-    elif ll == 'W': print('. - -')
-    elif ll == 'X': print('- . . -')
-    elif ll == 'Y': print('- . - -')
-    elif ll == 'Z': print('- - . .')
-    elif ll == '1': print('. - - - -')
-    elif ll == '2': print('. . - - -')
-    elif ll == '3': print('. . . - -')
-    elif ll == '4': print('. . . . -')
-    elif ll == '5': print('. . . . -')
-    elif ll == '6': print('- . . . .')
-    elif ll == '7': print('- - . . .')
-    elif ll == '8': print('- - - . .')
-    elif ll == '9': print('- - - - .')
-    elif ll == '0': print('- - - - -')
-    else: print('bad letter')
+    if ll == 'A':
+        codigo_morse = ('. -')
+    elif ll == 'C':
+        codigo_morse = ('- . . .')
+    elif ll == 'B':
+        codigo_morse = ('- . . .')
+    elif ll == 'D':
+        codigo_morse = ('- . . .')
+    elif ll == 'E':
+        codigo_morse = ('- . - .')
+    elif ll == 'F':
+        codigo_morse = ('.')
+    elif ll == 'G':
+        codigo_morse = ('. . - .')
+    elif ll == 'H':
+        codigo_morse = ('. . - .')
+    elif ll == 'I':
+        codigo_morse = ('. .')
+    elif ll == 'J':
+        codigo_morse = ('. - - -')
+    elif ll == 'K':
+        codigo_morse = ('- . -')
+    elif ll == 'L':
+        codigo_morse = ('. - . .')
+    elif ll == 'M':
+        codigo_morse = ('- -')
+    elif ll == 'N':
+        codigo_morse = ('- .')
+    elif ll == 'O':
+        codigo_morse = ('- - -')
+    elif ll == 'P':
+        codigo_morse = ('. - - .')
+    elif ll == 'Q':
+        codigo_morse = ('- -.  -')
+    elif ll == 'R':
+        codigo_morse = ('- . -')
+    elif ll == 'S':
+        codigo_morse = ('. . .')
+    elif ll == 'T':
+        codigo_morse = ('-')
+    elif ll == 'U':
+        codigo_morse = ('. . -')
+    elif ll == 'P':
+        codigo_morse = ('. - - .')
+    elif ll == 'Q':
+        codigo_morse = ('- -. -')
+    elif ll == 'R':
+        codigo_morse = ('- . -')
+    elif ll == 'S':
+        codigo_morse = ('. . .')
+    elif ll == 'T':
+        codigo_morse = ('-')
+    elif ll == 'U':
+        codigo_morse = ('. . -')
+    elif ll == 'V':
+        codigo_morse = ('. . . -')
+    elif ll == 'W':
+        codigo_morse = ('. - -')
+    elif ll == 'X':
+        codigo_morse = ('- . . -')
+    elif ll == 'Y':
+        codigo_morse = ('- . - -')
+    elif ll == 'Z':
+        codigo_morse = ('- - . .')
+    elif ll == '1':
+        codigo_morse = ('. - - - -')
+    elif ll == '2':
+        codigo_morse = ('. . - - -')
+    elif ll == '3':
+        codigo_morse = ('. . . - -')
+    elif ll == '4':
+        codigo_morse = ('. . . . -')
+    elif ll == '5':
+        codigo_morse = ('. . . . -')
+    elif ll == '6':
+        codigo_morse = ('- . . . .')
+    elif ll == '7':
+        codigo_morse = ('- - . . .')
+    elif ll == '8':
+        codigo_morse = ('- - - . .')
+    elif ll == '9':
+        codigo_morse = ('- - - - .')
+    elif ll == '0':
+        codigo_morse = ('- - - - -')
+    else:
+        codigo_morse = ('bad letter')
+    return codigo_morse
 
 
 temporal1 = '7'
