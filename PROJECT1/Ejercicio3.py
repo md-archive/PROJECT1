@@ -468,20 +468,20 @@ temporal = ". .-.. .-.. .- / -. --- / - . / .- -- .-"
 def print_morse_letter(ll):
     if ll == 'A':
         codigo_morse = ('. -')
-    elif ll == 'C':
-        codigo_morse = ('- . . .')
     elif ll == 'B':
         codigo_morse = ('- . . .')
-    elif ll == 'D':
-        codigo_morse = ('- . . .')
-    elif ll == 'E':
+    elif ll == 'C':
         codigo_morse = ('- . - .')
-    elif ll == 'F':
+    elif ll == 'D':
+        codigo_morse = ('- . .')
+    elif ll == 'E':
         codigo_morse = ('.')
+    elif ll == 'F':
+        codigo_morse = ('. . - .')
     elif ll == 'G':
-        codigo_morse = ('. . - .')
+        codigo_morse = ('- - .')
     elif ll == 'H':
-        codigo_morse = ('. . - .')
+        codigo_morse = ('. . . .')
     elif ll == 'I':
         codigo_morse = ('. .')
     elif ll == 'J':
@@ -499,7 +499,7 @@ def print_morse_letter(ll):
     elif ll == 'P':
         codigo_morse = ('. - - .')
     elif ll == 'Q':
-        codigo_morse = ('- -.  -')
+        codigo_morse = ('- - . -')
     elif ll == 'R':
         codigo_morse = ('- . -')
     elif ll == 'S':
@@ -511,9 +511,9 @@ def print_morse_letter(ll):
     elif ll == 'P':
         codigo_morse = ('. - - .')
     elif ll == 'Q':
-        codigo_morse = ('- -. -')
+        codigo_morse = ('- - . -')
     elif ll == 'R':
-        codigo_morse = ('- . -')
+        codigo_morse = ('. - .')
     elif ll == 'S':
         codigo_morse = ('. . .')
     elif ll == 'T':
@@ -539,7 +539,7 @@ def print_morse_letter(ll):
     elif ll == '4':
         codigo_morse = ('. . . . -')
     elif ll == '5':
-        codigo_morse = ('. . . . -')
+        codigo_morse = ('. . . . .')
     elif ll == '6':
         codigo_morse = ('- . . . .')
     elif ll == '7':
