@@ -382,11 +382,15 @@ def split_string(string):
     if code != '': codes.append(code)
     return codes
 
+
 def decode_morse_string(string):
+    result = ''
     for code in split_string(string):
-        if code == ' ': print(' ', end='')
-        else: print(decode_morse(code), end='')
-    print('')
+        if code == ' ':
+            result = code
+        else:
+            result = (decode_morse(code))
+    return result
  
 
 
