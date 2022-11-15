@@ -462,9 +462,6 @@ play(quienjuega, estonto)
 
 # Question 11
 
-temporal = ". .-.. .-.. .- / -. --- / - . / .- -- .-"
-
-
 def print_morse_letter(ll):
     if ll == 'A':
         codigo_morse = ('. -')
@@ -555,16 +552,30 @@ def print_morse_letter(ll):
     return codigo_morse
 
 
-temporal1 = '7'
-temporal2 = '- - . . .'
-# print(print_morse_letter(temporal1))
+temporal = ['P','E','R','R','O']
+#CODE
 juntar = ''
 for numero in temporal:
     resultado = print_morse_letter(numero)
-    juntar = juntar + ",' " + resultado + "'"
+    
+    juntar = juntar + ",'" + resultado + "'"
+juntar = juntar[1:]
+print(juntar)
 
-print(juntar[1:])
-print(decode_morse_string(temporal2))
+#print(list(str((juntar[1:]))))
+print([char(juntar)])
+#TEXT
+letra=''            
+ejemplo_temporal = [juntar]
+print(ejemplo_temporal)
+
+for i in ejemplo_temporal:
+    
+    letra+=(decode_morse_string(i))
+    
+print(letra)
+
+
 
 '''
 # Calculo
@@ -572,13 +583,15 @@ print("Calculando las posibilidades de ganar de 'X'...")
 print(x_wins)
 
 '''
+
 '''
-print(x_game_tree)
-print(x_wins)
-print(drawn)
-print(games)
-print(xwins)
-print(o_wins)
-print(draw)
-print(games)
+#TEXT
+letra=''
+ejemplo_temporal = ['. - - .','.','. - .','. - .','- - -']
+
+for i in ejemplo_temporal:
+    
+    letra+=(decode_morse_string(i))
+    
+print(letra)
 '''
