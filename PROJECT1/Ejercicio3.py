@@ -56,6 +56,95 @@ tree = ('?',
                     ('O',
                         ('?', '8', '?'), ('?', '9', '0')))))
 
+def print_morse_letter(ll):
+    if ll == 'A':
+        codigo_morse = ('. -')
+    elif ll == 'B':
+        codigo_morse = ('- . . .')
+    elif ll == 'C':
+        codigo_morse = ('- . - .')
+    elif ll == 'D':
+        codigo_morse = ('- . .')
+    elif ll == 'E':
+        codigo_morse = ('.')
+    elif ll == 'F':
+        codigo_morse = ('. . - .')
+    elif ll == 'G':
+        codigo_morse = ('- - .')
+    elif ll == 'H':
+        codigo_morse = ('. . . .')
+    elif ll == 'I':
+        codigo_morse = ('. .')
+    elif ll == 'J':
+        codigo_morse = ('. - - -')
+    elif ll == 'K':
+        codigo_morse = ('- . -')
+    elif ll == 'L':
+        codigo_morse = ('. - . .')
+    elif ll == 'M':
+        codigo_morse = ('- -')
+    elif ll == 'N':
+        codigo_morse = ('- .')
+    elif ll == 'O':
+        codigo_morse = ('- - -')
+    elif ll == 'P':
+        codigo_morse = ('. - - .')
+    elif ll == 'Q':
+        codigo_morse = ('- - . -')
+    elif ll == 'R':
+        codigo_morse = ('. - .')
+    elif ll == 'S':
+        codigo_morse = ('. . .')
+    elif ll == 'T':
+        codigo_morse = ('-')
+    elif ll == 'U':
+        codigo_morse = ('. . -')
+    elif ll == 'P':
+        codigo_morse = ('. - - .')
+    elif ll == 'Q':
+        codigo_morse = ('- - . -')
+    elif ll == 'R':
+        codigo_morse = ('. - .')
+    elif ll == 'S':
+        codigo_morse = ('. . .')
+    elif ll == 'T':
+        codigo_morse = ('-')
+    elif ll == 'U':
+        codigo_morse = ('. . -')
+    elif ll == 'V':
+        codigo_morse = ('. . . -')
+    elif ll == 'W':
+        codigo_morse = ('. - -')
+    elif ll == 'X':
+        codigo_morse = ('- . . -')
+    elif ll == 'Y':
+        codigo_morse = ('- . - -')
+    elif ll == 'Z':
+        codigo_morse = ('- - . .')
+    elif ll == '1':
+        codigo_morse = ('. - - - -')
+    elif ll == '2':
+        codigo_morse = ('. . - - -')
+    elif ll == '3':
+        codigo_morse = ('. . . - -')
+    elif ll == '4':
+        codigo_morse = ('. . . . -')
+    elif ll == '5':
+        codigo_morse = ('. . . . .')
+    elif ll == '6':
+        codigo_morse = ('- . . . .')
+    elif ll == '7':
+        codigo_morse = ('- - . . .')
+    elif ll == '8':
+        codigo_morse = ('- - - . .')
+    elif ll == '9':
+        codigo_morse = ('- - - - .')
+    elif ll == '0':
+        codigo_morse = ('- - - - -')
+    else:
+        codigo_morse = ('bad letter')
+    return codigo_morse
+
 def print_board(b):
     for n, x in enumerate(b):
         print(x, end='')
@@ -456,100 +545,13 @@ play(quienjuega, estonto)
 '''
 
 # Question 9, 10
-# print("Calculando cuantas veces gana O..", o_wins)  # ¿En cuántos casos gana O?
-# print("Calculando cuantas partidas acaban en empate..", draw)  # ¿Cuántas partidas terminan en empate?
-# print("Calculando numero total de juegos..", games)  # Question 9 In how many cases does O win? How many games end in a draw? How many possible different games are there?
+'''
+print("Calculando cuantas veces gana O..", o_wins)  # ¿En cuántos casos gana O?
+print("Calculando cuantas partidas acaban en empate..", draw)  # ¿Cuántas partidas terminan en empate?
+print("Calculando numero total de juegos..", games)  # Question 9 In how many cases does O win? How many games end in a draw? How many possible different games are there?
+'''
 
 # Question 11
-
-def print_morse_letter(ll):
-    if ll == 'A':
-        codigo_morse = ('. -')
-    elif ll == 'B':
-        codigo_morse = ('- . . .')
-    elif ll == 'C':
-        codigo_morse = ('- . - .')
-    elif ll == 'D':
-        codigo_morse = ('- . .')
-    elif ll == 'E':
-        codigo_morse = ('.')
-    elif ll == 'F':
-        codigo_morse = ('. . - .')
-    elif ll == 'G':
-        codigo_morse = ('- - .')
-    elif ll == 'H':
-        codigo_morse = ('. . . .')
-    elif ll == 'I':
-        codigo_morse = ('. .')
-    elif ll == 'J':
-        codigo_morse = ('. - - -')
-    elif ll == 'K':
-        codigo_morse = ('- . -')
-    elif ll == 'L':
-        codigo_morse = ('. - . .')
-    elif ll == 'M':
-        codigo_morse = ('- -')
-    elif ll == 'N':
-        codigo_morse = ('- .')
-    elif ll == 'O':
-        codigo_morse = ('- - -')
-    elif ll == 'P':
-        codigo_morse = ('. - - .')
-    elif ll == 'Q':
-        codigo_morse = ('- - . -')
-    elif ll == 'R':
-        codigo_morse = ('. - .')
-    elif ll == 'S':
-        codigo_morse = ('. . .')
-    elif ll == 'T':
-        codigo_morse = ('-')
-    elif ll == 'U':
-        codigo_morse = ('. . -')
-    elif ll == 'P':
-        codigo_morse = ('. - - .')
-    elif ll == 'Q':
-        codigo_morse = ('- - . -')
-    elif ll == 'R':
-        codigo_morse = ('. - .')
-    elif ll == 'S':
-        codigo_morse = ('. . .')
-    elif ll == 'T':
-        codigo_morse = ('-')
-    elif ll == 'U':
-        codigo_morse = ('. . -')
-    elif ll == 'V':
-        codigo_morse = ('. . . -')
-    elif ll == 'W':
-        codigo_morse = ('. - -')
-    elif ll == 'X':
-        codigo_morse = ('- . . -')
-    elif ll == 'Y':
-        codigo_morse = ('- . - -')
-    elif ll == 'Z':
-        codigo_morse = ('- - . .')
-    elif ll == '1':
-        codigo_morse = ('. - - - -')
-    elif ll == '2':
-        codigo_morse = ('. . - - -')
-    elif ll == '3':
-        codigo_morse = ('. . . - -')
-    elif ll == '4':
-        codigo_morse = ('. . . . -')
-    elif ll == '5':
-        codigo_morse = ('. . . . .')
-    elif ll == '6':
-        codigo_morse = ('- . . . .')
-    elif ll == '7':
-        codigo_morse = ('- - . . .')
-    elif ll == '8':
-        codigo_morse = ('- - - . .')
-    elif ll == '9':
-        codigo_morse = ('- - - - .')
-    elif ll == '0':
-        codigo_morse = ('- - - - -')
-    else:
-        codigo_morse = ('bad letter')
-    return codigo_morse
 
 
 temporal = ['P','E','R','R','O']
@@ -560,7 +562,7 @@ for numero in temporal:
     
     juntar = juntar + "," + resultado + ""
 juntar = juntar[1:]
-print(juntar)
+print(juntar.replace(' ', '').replace(',', ' '))
 
 #CODE TO TEXT
 letra=''            
@@ -573,10 +575,3 @@ for i in ejemplo_temporal:
 print(letra)
 
 
-
-'''
-# Calculo
-print("Calculando las posibilidades de ganar de 'X'...")
-print(x_wins)
-
-'''
