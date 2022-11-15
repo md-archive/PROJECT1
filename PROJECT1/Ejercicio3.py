@@ -141,6 +141,8 @@ def print_morse_letter(ll):
         codigo_morse = ('- - - - .')
     elif ll == '0':
         codigo_morse = ('- - - - -')
+    elif ll == ' ':
+        codigo_morse = (' ')
     else:
         codigo_morse = ('bad letter')
     return codigo_morse
@@ -553,11 +555,13 @@ print("Calculando numero total de juegos..", games)  # Question 9 In how many ca
 
 # Question 11
 
+#texto_usuario = input('\nPut Text ')
+#text = list(texto_usuario.upper())
 
-temporal = ['P','E','R','R','O']
+text = ['P','E','R','R','O']
 #TEXT TO CODE
 juntar = ''
-for numero in temporal:
+for numero in text:
     resultado = print_morse_letter(numero)
     
     juntar = juntar + "," + resultado + ""
