@@ -501,7 +501,7 @@ def print_morse_letter(ll):
     elif ll == 'Q':
         codigo_morse = ('- - . -')
     elif ll == 'R':
-        codigo_morse = ('- . -')
+        codigo_morse = ('. - .')
     elif ll == 'S':
         codigo_morse = ('. . .')
     elif ll == 'T':
